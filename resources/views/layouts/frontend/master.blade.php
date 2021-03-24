@@ -56,7 +56,7 @@
 			==============================================
 			-->
 			<div id="theme-main-banner" class="banner-one">
-				<div data-src="{{url('frontend/images/uin.jpg')}}">
+				<div data-src="{{asset('frontend/images/uin.jpg')}}">
 					<div class="camera_caption">
 						<div class="container">
 							{{-- <p class="wow fadeInUp animated">The government they survive artical of fortune</p>
