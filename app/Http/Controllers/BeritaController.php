@@ -12,4 +12,10 @@ class BeritaController extends Controller
         $beritas = Berita::orderBy('created_at','desc')->get();
         return view('frontend.berita.berita',compact(['beritas']));
     }
+
+    public function showBerita($id,$slug)
+    {
+        $berita = Berita::find($id);
+        return view('frontend.berita.single',compact(['berita']));
+    }
 }

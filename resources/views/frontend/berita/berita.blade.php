@@ -25,9 +25,9 @@
                                 <div class="overlay"><a href="#" class="date">{{date('d M Y',strtotime($berita->created_at))}}</a></div>
                             </div> <!-- /.image-box -->
                             <div class="post-meta">
-                                <h5 class="title"><a href="blog-details.html">{{$berita->judul}}</a></h5>
-                                <p>{{Str::limit($berita->konten,200)}}</p>
-                                <a href="blog-details.html" class="read-more">READ MORE</a>
+                                <h5 class="title"><a href="{{route('showBerita',['id'=>$berita->id,'slug'=>$berita->slug])}}">{{$berita->judul}}</a></h5>
+                                <p>{!!Str::limit($berita->konten,200)!!}</p>
+                                <a href="{{route('showBerita',['id'=>$berita->id,'slug'=>$berita->slug])}}" class="read-more">Baca selengkapnya...</a>
                             </div> <!-- /.post-meta -->
                         </div> <!-- /.single-blog -->
                         @endforeach
@@ -45,22 +45,12 @@
             <div class="col-xl-3 col-lg-4 col-md-6 col-sm-8 col-12 blog-sidebar">
                 <div class="sidebar-container sidebar-search">
                     <form action="#">
-                        <input type="text" placeholder="Search...">
+                        <input type="text" placeholder="Cari...">
                         <button><i class="fa fa-search" aria-hidden="true"></i></button>
                     </form>
                 </div> <!-- /.sidebar-search -->
-                <div class="sidebar-container sidebar-categories">
-                    <h5 class="title">Categories</h5>
-                    <ul>
-                        <li><a href="#">Travel and Aviation</a></li>
-                        <li><a href="#">Business Services</a></li>
-                        <li><a href="#">Consumer Products</a></li>
-                        <li><a href="#">Financial Services</a></li>
-                        <li><a href="#">Software Research</a></li>
-                    </ul>
-                </div> <!-- /.sidebar-categories -->
                 <div class="sidebar-container sidebar-recent-post">
-                    <h5 class="title">Recent Posts</h5>
+                    <h5 class="title">Berita lainnya...</h5>
                     <ul>
                         <li class="clearfix">
                             <img src="images/blog/6.jpg" alt="" class="float-left">
@@ -85,27 +75,6 @@
                         </li>
                     </ul>
                 </div> <!-- /.sidebar-recent-post -->
-                <div class="sidebar-container sidebar-archives">
-                    <h5 class="title">Archives</h5>
-                    <ul>
-                        <li><a href="#">January 2018</a></li>
-                        <li><a href="#">February 2018</a></li>
-                        <li><a href="#">March 2018</a></li>
-                    </ul>
-                </div> <!-- /.sidebar-archives -->
-                <div class="sidebar-tags">
-                    <h5 class="title">tags</h5>
-                    <ul class="clearfix">
-                        <li><a href="#">Business</a></li>
-                        <li><a href="#">Consulting</a></li>
-                        <li><a href="#">Sales</a></li>
-                        <li><a href="#">Startup</a></li>
-                        <li class="active"><a href="#">Marketing</a></li>
-                        <li><a href="#">Services</a></li>
-                        <li><a href="#">Financial</a></li>
-                        <li><a href="#">Research</a></li>
-                    </ul>
-                </div> <!-- /.sidebar-tags -->
             </div> <!-- /.col- -->
         </div> <!-- /.row -->
     </div> <!-- /.container -->

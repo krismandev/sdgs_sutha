@@ -32,6 +32,9 @@
                 <li>
                     <a href="{{route('getDokumen')}}" aria-expanded="false"><i class="fa fa-file"></i> <span class="hide-menu">Dokumen</span></a>
                 </li>
+                <li>
+                    <a href="{{route('getGaleri')}}" aria-expanded="false"><i class="fa fa-file"></i> <span class="hide-menu">Galeri</span></a>
+                </li>
             </ul>
         </nav>
 

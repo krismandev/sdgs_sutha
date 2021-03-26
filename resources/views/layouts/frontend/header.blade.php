@@ -27,7 +27,7 @@
                    <div class="menu-wrapper float-left">
                        <nav id="mega-menu-holder" class="clearfix">
                        <ul class="clearfix">
-                            <li class="active"><a href="#">Beranda</a>
+                            <li class="active"><a href="{{route('index')}}">Beranda</a>
                             </li>
                             <li class="active"><a href="#">Tentang</a>
                             </li>

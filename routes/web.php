@@ -11,18 +11,16 @@
 |
 */
 
-Route::get('/', function () {
-    return view('frontend.index');
-});
-
+Route::get('/', 'HomeController@index')->name('index');
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+
 Route::group(['prefix' => 'data'],function(){
     Route::get('dokumen','DataController@dokumen')->name('dokumen');
 
 });
 Route::get('/berita','BeritaController@berita')->name('berita');
+Route::get('/berita/{id}/{slug}','BeritaController@showBerita')->name('showBerita');
 
 // ----------------------------------------------------------------------------------------------------
 Route::group(['middleware'=>'auth','prefix' => 'admin'],function(){
@@ -45,5 +43,14 @@ Route::group(['middleware'=>'auth','prefix' => 'admin'],function(){
         Route::get('/','Dashboard\DokumenController@getDokumen')->name('getDokumen');
         Route::post('/','Dashboard\DokumenController@postDokumen')->name('postDokumen');
         Route::get('/{id}','Dashboard\DokumenController@editDokumen')->name('editDokumen');
+        Route::patch('/','Dashboard\DokumenController@updateDokumen')->name('updateDokumen');
+        Route::get('/delete/{id}','Dashboard\DokumenController@deleteDokumen')->name('deleteDokumen');
+
+    });
+
+    Route::group(['prefix' => 'galeri'],function(){
+        Route::get('/','Dashboard\GaleriController@getGaleri')->name('getGaleri');
+        Route::post('/','Dashboard\GaleriController@postGaleri')->name('postGaleri');
+        Route::get('/delete/{id}','Dashboard\GaleriController@deleteGaleri')->name('deleteGaleri');
     });
 });

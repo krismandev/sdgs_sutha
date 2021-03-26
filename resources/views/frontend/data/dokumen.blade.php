@@ -5,6 +5,10 @@
     .blog-grid{
         margin-top: 20px;
     }
+
+    .dokumen{
+        max-height: 250px;
+    }
 </style>
 <div class="blog-grid section-spacing">
     <div class="container">
@@ -16,13 +20,13 @@
                         <div class="col-md-4 col-12">
                             <div class="single-blog">
                                 <div class="image-box">
-                                    <img src="{{url('dokumen/'.$dokumen->gambar)}}" alt="">
-                                    <div class="overlay"><a href="#" class="date">Feb 06, 2018</a></div>
+                                    <img src="{{url('dokumen/'.$dokumen->gambar)}}" alt="" class="dokumen">
+                                    <div class="overlay"><a href="{{url('dokumen/'.$dokumen->file)}}" class="date"> <i class="fa fa-download"></i> </a></div>
                                 </div> <!-- /.image-box -->
                                 <div class="post-meta">
                                     <h5 class="title"><a href="blog-details.html">{{$dokumen->nama_dokumen}}</a></h5>
                                     <p>{{$dokumen->deskripsi}}</p>
-                                    <a href="blog-details.html" class="read-more">READ MORE</a>
+                                    {{-- <a href="blog-details.html" class="read-more">READ MORE</a> --}}
                                 </div> <!-- /.post-meta -->
                             </div> <!-- /.single-blog -->
                         </div> <!-- /.col- -->

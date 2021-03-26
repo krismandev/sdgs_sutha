@@ -7,10 +7,11 @@
     <div class="col-lg-12">
         <div class="white-box">
             <h3 class="box-title m-b-0">Edit dokumen {{$dokumen->nama_dokumen}}</h3>
-            <form class="form-horizontal" action="{{route('postBerita')}}" method="POST" enctype="multipart/form-data">
-                @csrf
+            <form class="form-horizontal" action="{{route('updateDokumen')}}" method="POST" enctype="multipart/form-data">
+                @csrf @method('PATCH')
                 <div class="form-group">
                     <label class="col-md-12">Nama Dokumen</label>
+                    <input type="hidden" value="{{$dokumen->id}}" name="dokumen_id">
                     <div class="col-md-12">
                         <input type="text" class="form-control" placeholder="Tulis judul disini..." name="nama_dokumen" value="{{$dokumen->nama_dokumen}}">
                     </div>
@@ -22,14 +23,15 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-sm-12">Gambar</label>
+                    <label class="col-sm-12">File</label>
                     <div class="row">
                         <div class="col-lg-4">
-                            <img src="{{url('dokumen/'.$dokumen->gambar)}}" alt="" style="width:150px;">
+                            <a href="{{url('dokumen/'.$dokumen->file)}}"><img src="{{url('dokumen/'.$dokumen->gambar)}}" alt="" style="width:150px;"></a>
                         </div>
                         <div class="col-lg-8">
                             <div class="col-sm-12">
-                                <input type="file" class="form-control" name="gambar">
+                                <input type="file" class="form-control" name="file">
+                                <small>*Abaikan jika tidak ingin mengganti file dokumen</small>
                             </div>
                         </div>
                     </div>

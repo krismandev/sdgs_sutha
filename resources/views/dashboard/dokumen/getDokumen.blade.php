@@ -72,12 +72,6 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-sm-12">Gambar</label>
-                            <div class="col-sm-12">
-                                <input type="file" class="form-control" name="gambar">
-                            </div>
-                        </div>
-                        <div class="form-group">
                             <label class="col-sm-12">File Dokumen</label>
                             <div class="col-sm-12">
                                 <input type="file" class="form-control" name="file">
@@ -94,4 +88,25 @@
         </div>
         <!-- /.modal-dialog -->
     </div>
+@endsection
+@section('linkfooter')
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script>
+    $(".hapus-dokumen").click(function (e) {
+        const dokumen_id = $(this).data("dokumen_id");
+
+        swal({
+            title: "Yakin?",
+            text: "Mau menghapus dokumen ini?",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+        })
+        .then((willDelete) => {
+            if (willDelete) {
+                window.location = "/admin/dokumen/delete/"+dokumen_id;
+            }
+        });
+    });
+</script>
 @endsection

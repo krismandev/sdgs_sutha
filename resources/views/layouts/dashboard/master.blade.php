@@ -156,7 +156,7 @@
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="//cdn.datatables.net/1.10.7/js/jquery.dataTables.min.js"></script>
     {{-- <script src="{{asset('ckeditor/ckeditor.js')}}"></script> --}}
-    @yield('footer')
+    @yield('linkfooter')
 </body>
 
 </html>

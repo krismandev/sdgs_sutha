@@ -191,6 +191,7 @@
 		<script src="{{asset('frontend/vendor/jquery.countTo.js')}}"></script>
 		<script src="{{asset('frontend/vendor/fancybox/dist/jquery.fancybox.min.js')}}"></script>
 		<script src="{{asset('frontend/js/theme.js')}}"></script>
+        @yield('linkfooter')
 		</div>
 	</body>
 </html>
