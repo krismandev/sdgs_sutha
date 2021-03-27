@@ -32,7 +32,7 @@ class DokumenController extends Controller
             'file' => 'required|file|mimes:pdf'
         ]);
 
-        if (request()->has('gambar')) {
+        if ($request->has('gambar')) {
             $gambar = $request->file('gambar');
             $nama_gambar = time()."_".$gambar->getClientOriginalName();
             $tujuan_upload = 'dokumen';
@@ -43,16 +43,16 @@ class DokumenController extends Controller
         // $tujuan_upload = 'dokumen';
         // $file->move($tujuan_upload,$nama_file);
 
-        if (request()->has('file')) {
-            $pdfuploaded = $request->file('file');
-            $pdfname = time() . '-' . $pdfuploaded->getClientOriginalName();
-            $pdfpath = 'dokumen';
-            $pdfuploaded->move($pdfpath, $pdfname);
+        if ($request->has('file')) {
+            $file = $request->file('file');
+            $nama_file = time()."_".$file->getClientOriginalName();
+            $tujuan_upload = 'dokumen';
+            $file->move($tujuan_upload,$nama_file);
 
             $sebelum = '.pdf';
             $sesudah = ['.png'];
-            $imageName = Str::replaceArray($sebelum,$sesudah,$pdfname);
-            $imagePdf = new \Spatie\PdfToImage\Pdf($pdfpath . '/' . $pdfname);
+            $imageName = Str::replaceArray($sebelum,$sesudah,$nama_file);
+            $imagePdf = new \Spatie\PdfToImage\Pdf($tujuan_upload . '/' . $nama_file);
             $imagePdf->saveImage(public_path("dokumen/".$imageName));
           }
 
@@ -60,7 +60,7 @@ class DokumenController extends Controller
             'nama_dokumen' => $request->nama_dokumen,
             'deskripsi' => $request->deskripsi,
             'gambar' => $imageName,
-            'file' => $pdfname
+            'file' => $nama_file
         ]);
         Alert::success("Sukses","Berhasil menambah dokumen");
         return redirect()->back();
