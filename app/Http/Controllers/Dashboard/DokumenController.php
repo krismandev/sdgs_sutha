@@ -12,10 +12,10 @@ use Illuminate\Http\Request;
 class DokumenController extends Controller
 {
 
-    public function __construct()
-    {
-        Ghostscript::setGsPath("C:\Program Files\gs\gs9.53.3\bin\gswin64c.exe");
-    }
+    // public function __construct()
+    // {
+    //     Ghostscript::setGsPath("C:\Program Files\gs\gs9.53.3\bin\gswin64c.exe");
+    // }
 
     public function getDokumen()
     {

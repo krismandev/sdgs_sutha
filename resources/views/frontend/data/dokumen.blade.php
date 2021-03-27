@@ -24,7 +24,7 @@
                                     <div class="overlay"><a href="{{url('dokumen/'.$dokumen->file)}}" class="date"> <i class="fa fa-download"></i> </a></div>
                                 </div> <!-- /.image-box -->
                                 <div class="post-meta">
-                                    <h5 class="title"><a href="blog-details.html">{{$dokumen->nama_dokumen}}</a></h5>
+                                    <h5 class="title"><a href="{{url('dokumen/'.$dokumen->file)}}">{{$dokumen->nama_dokumen}}</a></h5>
                                     <p>{{$dokumen->deskripsi}}</p>
                                     {{-- <a href="blog-details.html" class="read-more">READ MORE</a> --}}
                                 </div> <!-- /.post-meta -->
