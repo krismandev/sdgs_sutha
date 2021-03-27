@@ -53,7 +53,7 @@ class DokumenController extends Controller
             $sesudah = ['.png'];
             $imageName = Str::replaceArray($sebelum,$sesudah,$nama_file);
             $imagePdf = new \Spatie\PdfToImage\Pdf($tujuan_upload . '/' . $nama_file);
-            $imagePdf->saveImage(public_path("dokumen/".$imageName));
+            $imagePdf->saveImage("dokumen/".$imageName);
           }
 
         $dokumen = Dokumen::create([
