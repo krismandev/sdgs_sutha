@@ -1,3 +1,11 @@
+<?php
+
+use App\Banner;
+
+$banners = Banner::orderBy('created_at','desc')->get();
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -35,9 +43,9 @@
 			<!-- ===================================================
 				Loading Transition
 			==================================================== -->
-			<div id="loader-wrapper">
+			{{-- <div id="loader-wrapper">
 				<div id="loader"></div>
-			</div>
+			</div> --}}
 
 
 
@@ -55,8 +63,14 @@
 				Theme Main Banner
 			==============================================
 			-->
+
 			<div id="theme-main-banner" class="banner-one">
-				<div data-src="{{asset('frontend/images/uin.jpg')}}">
+                @if ($banners->count() != null)
+
+                @foreach ($banners as $banner)
+
+
+				<div data-src="{{asset('banner/'.$banner->gambar)}}">
 					<div class="camera_caption">
 						<div class="container">
 							{{-- <p class="wow fadeInUp animated">The government they survive artical of fortune</p>
@@ -65,24 +79,18 @@
 						</div> <!-- /.container -->
 					</div> <!-- /.camera_caption -->
 				</div>
-                <div data-src="{{asset('frontend/images/uin2.jpg')}}">
+                @endforeach
+                @else
+                <div data-src="{{asset('frontend/images/home/slide-1.jpg')}}">
 					<div class="camera_caption">
 						<div class="container">
-							{{-- <p class="wow fadeInUp animated">The government they survive artical of fortune</p> --}}
-							{{-- <h1 class="wow fadeInUp animated" data-wow-delay="0.2s">We IMPROVE YOUR <br>SALES EFFICIENCY</h1> --}}
+							{{-- <p class="wow fadeInUp animated">The government they survive artical of fortune</p>
+							<h1 class="wow fadeInUp animated" data-wow-delay="0.2s">We IMPROVE YOUR <br>SALES EFFICIENCY</h1> --}}
 							{{-- <a href="contact.html" class="theme-button-one wow fadeInUp animated" data-wow-delay="0.39s">CONTACT US</a> --}}
 						</div> <!-- /.container -->
 					</div> <!-- /.camera_caption -->
 				</div>
-				<div data-src="{{asset('frontend/images/uin3.jpg')}}">
-					<div class="camera_caption">
-						<div class="container">
-							{{-- <p class="wow fadeInUp animated">The government they survive artical of fortune</p> --}}
-							{{-- <h1 class="wow fadeInUp animated" data-wow-delay="0.2s">We IMPROVE YOUR <br>SALES EFFICIENCY</h1> --}}
-							{{-- <a href="contact.html" class="theme-button-one wow fadeInUp animated" data-wow-delay="0.39s">CONTACT US</a> --}}
-						</div> <!-- /.container -->
-					</div> <!-- /.camera_caption -->
-				</div>
+                @endif
 			</div> <!-- /#theme-main-banner -->
 
 
@@ -118,12 +126,12 @@
 				<div class="top-footer">
 					<div class="container">
 						<div class="row">
-							<div class="col-xl-3 col-lg-4 col-sm-6 about-widget">
-								<h6 class="title">About OUR Consulting</h6>
-								<p>That started from this tropic port aboard this tiny ship today still want by theam government they survive on up to thetre east side to a deluxe as soldiers of artics fortune.</p>
-								<div class="queries"><i class="flaticon-phone-call"></i> Any Queries : <a href="#">(+1) 234 567 900</a></div>
+							<div class="col-xl-4 col-lg-4 col-sm-6 about-widget">
+								<h6 class="title">Hubungi kami</h6>
+								<p><i class="fa fa-map-marker"></i> Jl. Lintas Jambi-Muara Bulian, Mendalo, Kecamatan Jambi Luar Kota, Kabupaten Muaro Jambi, 36361</p>
+								<div class="queries"><i class="fa fa-envelope-o"></i> Email : <a href="#">sdgscenter@uinjambi.ac.id</a></div>
 							</div> <!-- /.about-widget -->
-							<div class="col-xl-4 col-lg-3 col-sm-6 footer-recent-post">
+							{{-- <div class="col-xl-4 col-lg-3 col-sm-6 footer-recent-post">
 								<h6 class="title">RECENT POSTS</h6>
 								<ul>
 									<li class="clearfix">
@@ -141,8 +149,8 @@
 										</div>
 									</li>
 								</ul>
-							</div> <!-- /.footer-recent-post -->
-							<div class="col-xl-2 col-lg-3 col-sm-6 footer-list">
+							</div>  --}}
+							{{-- <div class="col-xl-2 col-lg-3 col-sm-6 footer-list">
 								<h6 class="title">SOLUTIONS</h6>
 								<ul>
 									<li><a href="#">Travel and Aviation</a></li>
@@ -152,15 +160,15 @@
 									<li><a href="#">Software Research</a></li>
 									<li><a href="#">Quality Resourcing</a></li>
 								</ul>
-							</div> <!-- /.footer-list -->
-							<div class="col-xl-3 col-lg-2 col-sm-6 footer-newsletter">
+							</div> --}}
+							{{-- <div class="col-xl-3 col-lg-2 col-sm-6 footer-newsletter">
 								<h6 class="title">NEWSLETTER</h6>
 								<form action="#">
 									<input type="text" placeholder="Name *">
 									<input type="email" placeholder="Email *">
 									<button class="theme-button-one">SUBSCRIBE</button>
 								</form>
-							</div>
+							</div> --}}
 						</div> <!-- /.row -->
 					</div> <!-- /.container -->
 				</div> <!-- /.top-footer -->

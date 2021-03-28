@@ -15,9 +15,10 @@
 <div class="blog-inner-page section-spacing">
     <div class="container">
         <div class="row">
+            @if ($beritas->count() != null)
             <div class="col-xl-9 col-lg-8 col-12 our-blog">
                 <div class="post-wrapper">
-                    @if ($beritas->count() != null)
+
                         @foreach ($beritas as $berita)
                         <div class="single-blog">
                             <div class="image-box">
@@ -31,16 +32,15 @@
                             </div> <!-- /.post-meta -->
                         </div> <!-- /.single-blog -->
                         @endforeach
-                    @endif
+
                 </div> <!-- /.post-wrapper -->
                 <div class="theme-pagination">
                     <ul>
-                        <li><a href="#">1</a></li>
-                        <li class="active"><a href="#">2</a></li>
-                        <li><a href="#"><i class="fa fa-angle-double-right" aria-hidden="true"></i></a></li>
+                        {{$beritas->links()}}
                     </ul>
                 </div>
             </div>
+            @endif
             <!-- ===================== Blog Sidebar ==================== -->
             <div class="col-xl-3 col-lg-4 col-md-6 col-sm-8 col-12 blog-sidebar">
                 <div class="sidebar-container sidebar-search">
@@ -52,27 +52,17 @@
                 <div class="sidebar-container sidebar-recent-post">
                     <h5 class="title">Berita lainnya...</h5>
                     <ul>
+                        @if ($beritaLainnya->count() != null)
+                        @foreach ($beritaLainnya as $berita)
                         <li class="clearfix">
-                            <img src="images/blog/6.jpg" alt="" class="float-left">
+                            <img src="{{url('images/'.$berita->gambar)}}" alt="" class="float-left">
                             <div class="post float-left">
-                                <a href="blog-details.html">World don't move to beat of just one drum.</a>
-                                <div class="date">5 minutes ago</div>
+                                <a href="{{route('showBerita',['id'=>$berita->id,'slug'=>$berita->slug])}}">{{Str::limit($berita->judul,100)}}</a>
+                                <div class="date">{{$berita->created_at->diffForHumans()}}</div>
                             </div>
                         </li>
-                        <li class="clearfix">
-                            <img src="images/blog/7.jpg" alt="" class="float-left">
-                            <div class="post float-left">
-                                <a href="blog-details.html">Be right for you may not be right for some.</a>
-                                <div class="date">2 days ago</div>
-                            </div>
-                        </li>
-                        <li class="clearfix">
-                            <img src="images/blog/8.jpg" alt="" class="float-left">
-                            <div class="post float-left">
-                                <a href="blog-details.html">World don't move to beat of just one drum.</a>
-                                <div class="date">1 month ago</div>
-                            </div>
-                        </li>
+                        @endforeach
+                        @endif
                     </ul>
                 </div> <!-- /.sidebar-recent-post -->
             </div> <!-- /.col- -->

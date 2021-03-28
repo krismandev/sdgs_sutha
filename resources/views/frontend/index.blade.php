@@ -60,4 +60,37 @@
         </div> <!-- /.container -->
     </div> <!-- /.overlay -->
 </div> <!-- /.testimonial-section -->
+
+<div class="our-blog latest-news section-spacing">
+    <div class="container">
+        <div class="theme-title-one">
+            <h2>Berita Terbaru</h2>
+            {{-- <p>A tale of a fateful trip that started from this tropic port aboard this tiny ship today stillers </p> --}}
+        </div> <!-- /.theme-title-one -->
+        @if($beritas->count() != null)
+        <div class="wrapper">
+            <div class="clearfix">
+                <div class="latest-news-slider">
+                    @foreach ($beritas as $berita)
+
+                    <div class="item">
+                        <div class="single-blog">
+                            <div class="image-box">
+                                <img src="{{url('images/'.$berita->gambar)}}" alt="" style="max-height: 278px;">
+                                <div class="overlay"><a href="#" class="date">{{date('d M Y',strtotime($berita->created_at))}}</a></div>
+                            </div> <!-- /.image-box -->
+                            <div class="post-meta">
+                                <h5 class="title"><a href="{{route('showBerita',['id'=>$berita->id,'slug'=>$berita->slug])}}">{!!Str::limit($berita->konten,150)!!}</a></h5>
+                                <a href="{{route('showBerita',['id'=>$berita->id,'slug'=>$berita->slug])}}" class="read-more">Baca selengkapnya...</a>
+                            </div> <!-- /.post-meta -->
+                        </div> <!-- /.single-blog -->
+                    </div> <!-- /.col- -->
+                    @endforeach
+                </div> <!-- /.latest-news-slider -->
+            </div> <!-- /.row -->
+        </div> <!-- /.wrapper -->
+        @endif
+    </div> <!-- /.container -->
+</div> <!-- /.our-blog -->
+
 @endsection

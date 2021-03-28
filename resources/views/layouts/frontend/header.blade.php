@@ -1,5 +1,5 @@
 <header class="header-one">
-    <div class="top-header">
+    {{-- <div class="top-header">
         <div class="container clearfix">
             <div class="logo float-left"><a href="index.html"><img src="{{asset('frontend/images/logouin.png')}}" alt="" style="max-height: 70px;"></a></div>
             <div class="address-wrapper float-right">
@@ -14,12 +14,11 @@
                         <h6>Email kami:</h6>
                         <p>sdgscenter@uinjambi.ac.id</p>
                     </li>
-                    {{-- <li class="quotes"><a href="#">GET A QUOTES</a></li> --}}
-                </ul>
-            </div> <!-- /.address-wrapper -->
-        </div> <!-- /.container -->
-    </div> <!-- /.top-header -->
 
+                </ul>
+            </div>
+        </div>
+    </div>  --}}
     <div class="theme-menu-wrapper">
         <div class="container">
             <div class="bg-wrapper clearfix">
@@ -57,10 +56,10 @@
                        <ul>
                            <li class="social-icon">
                                <ul>
-                                <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                                <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                                <li><a href="https://www.instagram.com/p/CHeWRh7pZ39/?igshid=1k6w1xy12bzns" target="_blank"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                                {{-- <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
                                 <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
-                                <li><a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
+                                <li><a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li> --}}
                             </ul>
                            </li>
                            <li class="search-option">

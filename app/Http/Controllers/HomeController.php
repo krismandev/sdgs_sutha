@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Tentang;
+use App\Berita;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -25,6 +26,7 @@ class HomeController extends Controller
     public function index()
     {
         $tentang = Tentang::first();
-        return view('frontend.index',compact(['tentang']));
+        $beritas = Berita::orderBy('created_at','desc')->paginate(3);
+        return view('frontend.index',compact(['tentang','beritas']));
     }
 }

@@ -6,10 +6,10 @@
         <div class="top-left-part">
             <a class="logo" href="index.html">
                 <b>
-                    <img src="{{asset('dashboard/plugins/images/logo.png')}}" alt="home" />
+                    <img src="{{asset('frontend/images/logouin.png')}}" alt="home" style="height: 50px;"/>
                 </b>
                 <span>
-                    <img src="{{asset('dashboard/plugins/images/logo-text.png')}}" alt="homepage" class="dark-logo" />
+                    SDGS UIN Sutha
                 </span>
             </a>
         </div>

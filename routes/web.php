@@ -53,4 +53,10 @@ Route::group(['middleware'=>'auth','prefix' => 'admin'],function(){
         Route::post('/','Dashboard\GaleriController@postGaleri')->name('postGaleri');
         Route::get('/delete/{id}','Dashboard\GaleriController@deleteGaleri')->name('deleteGaleri');
     });
+
+    Route::group(['prefix' => 'banner'],function(){
+        Route::get('/','Dashboard\BannerController@getBanner')->name('getBanner');
+        Route::post('/','Dashboard\BannerController@postBanner')->name('postBanner');
+        Route::get('/delete/{id}','Dashboard\BannerController@deleteBanner')->name('deleteBanner');
+    });
 });
