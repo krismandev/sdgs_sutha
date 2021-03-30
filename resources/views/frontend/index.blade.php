@@ -141,7 +141,7 @@ $banners = Banner::orderBy('created_at','desc')->get();
     </div> <!-- /.container -->
 </div> <!-- /.our-blog -->
 
-<div class="testimonial-section section-spacing">
+<div class=" section-spacing">
     <div class="overlay">
         <div class="container">
             <div class="row">
@@ -150,7 +150,7 @@ $banners = Banner::orderBy('created_at','desc')->get();
                 <div class="col-lg-2 col-sm-6 col-12 mb-1">
                     <div class="team-member">
                         <div class="image-box">
-                            <a href="{{route('showTujuan',$tujuan->id)}}"><img src="{{asset('images/'.$tujuan->getImage())}}" alt="" class="tujuanimg"></a>
+                            <a href="{{route('showTujuan',$tujuan->id)}}"><img src="{{$tujuan->getImage()}}" alt="" class="tujuanimg"></a>
                         </div> <!-- /.image-box -->
                     </div> <!-- /.team-member -->
                 </div> <!-- /.col- -->

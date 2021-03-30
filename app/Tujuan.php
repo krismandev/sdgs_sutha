@@ -11,9 +11,9 @@ class Tujuan extends Model
     public function getImage()
     {
         if ($this->gambar == null) {
-            return "logo_sdgs.png";
+            return asset("images/logo_sdgs.png");
         }else {
-            return $this->gambar;
+            return url("images/".$this->gambar);
         }
     }
 }
