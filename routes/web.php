@@ -21,6 +21,8 @@ Route::group(['prefix' => 'data'],function(){
 });
 Route::get('/berita','BeritaController@berita')->name('berita');
 Route::get('/berita/{id}/{slug}','BeritaController@showBerita')->name('showBerita');
+Route::get('/tujuan-{id}','TujuanController@showTujuan')->name('showTujuan');
+
 
 // ----------------------------------------------------------------------------------------------------
 Route::group(['middleware'=>'auth','prefix' => 'admin'],function(){
@@ -58,5 +60,12 @@ Route::group(['middleware'=>'auth','prefix' => 'admin'],function(){
         Route::get('/','Dashboard\BannerController@getBanner')->name('getBanner');
         Route::post('/','Dashboard\BannerController@postBanner')->name('postBanner');
         Route::get('/delete/{id}','Dashboard\BannerController@deleteBanner')->name('deleteBanner');
+    });
+
+    Route::group(['prefix' => 'tujuan'],function(){
+        Route::get('/','Dashboard\TujuanController@getTujuan')->name('getTujuan');
+        Route::post('/','Dashboard\TujuanController@postTujuan')->name('postTujuan');
+        Route::get('/{id}','Dashboard\TujuanController@editTujuan')->name('editTujuan');
+        Route::patch('/','Dashboard\TujuanController@updateTujuan')->name('updateTujuan');
     });
 });

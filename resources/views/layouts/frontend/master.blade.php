@@ -1,10 +1,4 @@
-<?php
 
-use App\Banner;
-
-$banners = Banner::orderBy('created_at','desc')->get();
-
-?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -64,34 +58,7 @@ $banners = Banner::orderBy('created_at','desc')->get();
 			==============================================
 			-->
 
-			<div id="theme-main-banner" class="banner-one">
-                @if ($banners->count() != null)
 
-                @foreach ($banners as $banner)
-
-
-				<div data-src="{{asset('banner/'.$banner->gambar)}}">
-					<div class="camera_caption">
-						<div class="container">
-							{{-- <p class="wow fadeInUp animated">The government they survive artical of fortune</p>
-							<h1 class="wow fadeInUp animated" data-wow-delay="0.2s">We IMPROVE YOUR <br>SALES EFFICIENCY</h1> --}}
-							{{-- <a href="contact.html" class="theme-button-one wow fadeInUp animated" data-wow-delay="0.39s">CONTACT US</a> --}}
-						</div> <!-- /.container -->
-					</div> <!-- /.camera_caption -->
-				</div>
-                @endforeach
-                @else
-                <div data-src="{{asset('frontend/images/home/slide-1.jpg')}}">
-					<div class="camera_caption">
-						<div class="container">
-							{{-- <p class="wow fadeInUp animated">The government they survive artical of fortune</p>
-							<h1 class="wow fadeInUp animated" data-wow-delay="0.2s">We IMPROVE YOUR <br>SALES EFFICIENCY</h1> --}}
-							{{-- <a href="contact.html" class="theme-button-one wow fadeInUp animated" data-wow-delay="0.39s">CONTACT US</a> --}}
-						</div> <!-- /.container -->
-					</div> <!-- /.camera_caption -->
-				</div>
-                @endif
-			</div> <!-- /#theme-main-banner -->
 
 
             @yield('content')

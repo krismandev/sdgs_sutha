@@ -1,3 +1,11 @@
+<?php
+
+use App\Banner;
+
+$banners = Banner::orderBy('created_at','desc')->get();
+
+?>
+
 @extends('layouts.frontend.master')
 @section('title')
     SDGs Center UIN Sultan Thaha Syaifuddin Jambi
@@ -7,7 +15,47 @@
     .about-compnay{
         padding: 25px;
     }
+
+    .tujuanimg{
+        /* -webkit-transform: translate(-50% , -50%);
+                transform: translate(-50% , -50%); */
+        transition:all 0.5s ease-in-out;
+        box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.12);
+    }
+
+    .tujuanimg:hover{
+        -webkit-transform:translate(-50% , -50%) scale3D(1.1,1.1,1);
+          transform:translate(-50% , -50%) scale3D(1.1,1.1,1);
+    }
 </style>
+
+<div id="theme-main-banner" class="banner-one">
+    @if ($banners->count() != null)
+
+    @foreach ($banners as $banner)
+    <div data-src="{{asset('banner/'.$banner->gambar)}}">
+        <div class="camera_caption">
+            <div class="container">
+                {{-- <p class="wow fadeInUp animated">The government they survive artical of fortune</p>
+                <h1 class="wow fadeInUp animated" data-wow-delay="0.2s">We IMPROVE YOUR <br>SALES EFFICIENCY</h1> --}}
+                {{-- <a href="contact.html" class="theme-button-one wow fadeInUp animated" data-wow-delay="0.39s">CONTACT US</a> --}}
+            </div> <!-- /.container -->
+        </div> <!-- /.camera_caption -->
+    </div>
+    @endforeach
+    @else
+    <div data-src="{{asset('frontend/images/home/slide-1.jpg')}}">
+        <div class="camera_caption">
+            <div class="container">
+                {{-- <p class="wow fadeInUp animated">The government they survive artical of fortune</p>
+                <h1 class="wow fadeInUp animated" data-wow-delay="0.2s">We IMPROVE YOUR <br>SALES EFFICIENCY</h1> --}}
+                {{-- <a href="contact.html" class="theme-button-one wow fadeInUp animated" data-wow-delay="0.39s">CONTACT US</a> --}}
+            </div> <!-- /.container -->
+        </div> <!-- /.camera_caption -->
+    </div>
+    @endif
+</div> <!-- /#theme-main-banner -->
+
 <div class="about-compnay section-spacing">
     <div class="container">
         <div class="row">
@@ -92,5 +140,25 @@
         @endif
     </div> <!-- /.container -->
 </div> <!-- /.our-blog -->
+
+<div class="testimonial-section section-spacing">
+    <div class="overlay">
+        <div class="container">
+            <div class="row">
+                @if($tujuans->count() != null)
+                @foreach ($tujuans as $tujuan)
+                <div class="col-lg-2 col-sm-6 col-12 mb-1">
+                    <div class="team-member">
+                        <div class="image-box">
+                            <a href="{{route('showTujuan',$tujuan->id)}}"><img src="{{asset('images/'.$tujuan->getImage())}}" alt="" class="tujuanimg"></a>
+                        </div> <!-- /.image-box -->
+                    </div> <!-- /.team-member -->
+                </div> <!-- /.col- -->
+                @endforeach
+                @endif
+            </div> <!-- /.row -->
+        </div> <!-- /.container -->
+    </div> <!-- /.overlay -->
+</div> <!-- /.testimonial-section -->
 
 @endsection

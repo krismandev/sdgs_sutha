@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Tentang;
 use App\Berita;
+use App\Tujuan;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -13,10 +14,10 @@ class HomeController extends Controller
      *
      * @return void
      */
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
+    // public function __construct()
+    // {
+    //     $this->middleware('auth');
+    // }
 
     /**
      * Show the application dashboard.
@@ -25,8 +26,9 @@ class HomeController extends Controller
      */
     public function index()
     {
+        $tujuans = Tujuan::orderBy('id','asc')->get();
         $tentang = Tentang::first();
         $beritas = Berita::orderBy('created_at','desc')->paginate(3);
-        return view('frontend.index',compact(['tentang','beritas']));
+        return view('frontend.index',compact(['tentang','beritas','tujuans']));
     }
 }
