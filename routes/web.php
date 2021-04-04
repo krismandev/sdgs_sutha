@@ -22,7 +22,8 @@ Route::group(['prefix' => 'data'],function(){
 Route::get('/berita','BeritaController@berita')->name('berita');
 Route::get('/berita/{id}/{slug}','BeritaController@showBerita')->name('showBerita');
 Route::get('/tujuan-{id}','TujuanController@showTujuan')->name('showTujuan');
-
+Route::get('/kontak','KontakController@kontak')->name('kontak');
+Route::post('/kontak','KontakController@postkontak')->name('postKontak');
 
 // ----------------------------------------------------------------------------------------------------
 Route::group(['middleware'=>'auth','prefix' => 'admin'],function(){
@@ -67,5 +68,11 @@ Route::group(['middleware'=>'auth','prefix' => 'admin'],function(){
         Route::post('/','Dashboard\TujuanController@postTujuan')->name('postTujuan');
         Route::get('/{id}','Dashboard\TujuanController@editTujuan')->name('editTujuan');
         Route::patch('/','Dashboard\TujuanController@updateTujuan')->name('updateTujuan');
+    });
+
+    Route::group(['prefix' => 'inbox'],function(){
+        Route::get('/','Dashboard\InboxController@getInbox')->name('getInbox');
+        Route::get('/{id}','Dashboard\InboxController@showMessage')->name('showMessage');
+        Route::patch('/','Dashboard\InboxController@updateInbox')->name('updateInbox');
     });
 });

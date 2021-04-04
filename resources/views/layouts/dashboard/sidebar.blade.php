@@ -28,6 +28,9 @@
                 <li>
                     <a href="{{route('getTujuan')}}" aria-expanded="false"><i class="fa fa-file"></i> <span class="hide-menu">Tujuan SDGs</span></a>
                 </li>
+                <li>
+                    <a href="{{route('getInbox')}}" aria-expanded="false"><i class="fa fa-file"></i> <span class="hide-menu">Inbox</span></a>
+                </li>
             </ul>
         </nav>
 

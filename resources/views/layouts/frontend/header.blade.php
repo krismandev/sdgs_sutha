@@ -47,7 +47,7 @@
                             </li>
                             <li><a href="{{route('berita')}}">Berita</a>
                             </li>
-                            <li><a href="contact.html">Kontak</a></li>
+                            <li><a href="{{route('kontak')}}">Kontak</a></li>
                        </ul>
                     </nav> <!-- /#mega-menu-holder -->
                    </div> <!-- /.menu-wrapper -->
