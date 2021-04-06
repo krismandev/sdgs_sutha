@@ -12,4 +12,24 @@ class DataController extends Controller
         $dokumens = Dokumen::orderBy('created_at','desc')->get();
         return view('frontend.data.dokumen',compact(['dokumens']));
     }
+
+    public function sosial()
+    {
+        return view('frontend.pilar.sosial');
+    }
+
+    public function ekonomi()
+    {
+        return view('frontend.pilar.ekonomi');
+    }
+
+    public function hukum()
+    {
+        return view('frontend.pilar.hukum');
+    }
+
+    public function lingkungan()
+    {
+        return view('frontend.pilar.lingkungan');
+    }
 }

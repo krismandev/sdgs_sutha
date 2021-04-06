@@ -11,25 +11,25 @@
         <nav class="sidebar-nav">
             <ul id="side-menu">
                 <li>
-                    <a href="{{route('getBanner')}}" aria-expanded="false"><i class="icon-book-open"></i> <span class="hide-menu">Banner</span></a>
+                    <a href="{{route('getBanner')}}" aria-expanded="false" class="{{(request()->is('admin/banner*'))?'active': ''}}"><i class="icon-book-open"></i> <span class="hide-menu">Banner</span></a>
                 </li>
                 <li>
-                    <a href="{{route('getBerita')}}" aria-expanded="false"><i class="icon-book-open"></i> <span class="hide-menu">Berita</span></a>
+                    <a href="{{route('getBerita')}}" aria-expanded="false" class="{{(request()->is('admin/berita*'))?'active': ''}}"><i class="icon-book-open"></i> <span class="hide-menu">Berita</span></a>
                 </li>
                 <li>
-                    <a href="{{route('getTentang')}}" aria-expanded="false"><i class="fa fa-dot-circle-o"></i> <span class="hide-menu">Tentang</span></a>
+                    <a href="{{route('getTentang')}}" aria-expanded="false" class="{{(request()->is('admin/tentang*'))?'active': ''}}"><i class="fa fa-dot-circle-o"></i> <span class="hide-menu">Tentang</span></a>
                 </li>
                 <li>
-                    <a href="{{route('getDokumen')}}" aria-expanded="false"><i class="fa fa-file"></i> <span class="hide-menu">Dokumen</span></a>
+                    <a href="{{route('getDokumen')}}" aria-expanded="false" class="{{(request()->is('admin/dokumen*'))?'active': ''}}"><i class="fa fa-file"></i> <span class="hide-menu">Dokumen</span></a>
                 </li>
                 <li>
-                    <a href="{{route('getGaleri')}}" aria-expanded="false"><i class="fa fa-file"></i> <span class="hide-menu">Galeri</span></a>
+                    <a href="{{route('getGaleri')}}" aria-expanded="false" class="{{(request()->is('admin/galeri*'))?'active': ''}}"><i class="fa fa-file"></i> <span class="hide-menu">Galeri</span></a>
                 </li>
                 <li>
-                    <a href="{{route('getTujuan')}}" aria-expanded="false"><i class="fa fa-file"></i> <span class="hide-menu">Tujuan SDGs</span></a>
+                    <a href="{{route('getTujuan')}}" aria-expanded="false" class="{{(request()->is('admin/tujuan*'))?'active': ''}}"><i class="fa fa-file"></i> <span class="hide-menu">Tujuan SDGs</span></a>
                 </li>
                 <li>
-                    <a href="{{route('getInbox')}}" aria-expanded="false"><i class="fa fa-file"></i> <span class="hide-menu">Inbox</span></a>
+                    <a href="{{route('getInbox')}}" aria-expanded="false" class="{{(request()->is('admin/inbox*'))?'active': ''}}"><i class="fa fa-file"></i> <span class="hide-menu">Inbox</span></a>
                 </li>
             </ul>
         </nav>

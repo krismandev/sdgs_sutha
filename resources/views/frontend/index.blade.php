@@ -29,33 +29,6 @@ $banners = Banner::orderBy('created_at','desc')->get();
     }
 </style>
 
-<div id="theme-main-banner" class="banner-one">
-    @if ($banners->count() != null)
-
-    @foreach ($banners as $banner)
-    <div data-src="{{asset('banner/'.$banner->gambar)}}">
-        <div class="camera_caption">
-            <div class="container">
-                {{-- <p class="wow fadeInUp animated">The government they survive artical of fortune</p>
-                <h1 class="wow fadeInUp animated" data-wow-delay="0.2s">We IMPROVE YOUR <br>SALES EFFICIENCY</h1> --}}
-                {{-- <a href="contact.html" class="theme-button-one wow fadeInUp animated" data-wow-delay="0.39s">CONTACT US</a> --}}
-            </div> <!-- /.container -->
-        </div> <!-- /.camera_caption -->
-    </div>
-    @endforeach
-    @else
-    <div data-src="{{asset('frontend/images/home/slide-1.jpg')}}">
-        <div class="camera_caption">
-            <div class="container">
-                {{-- <p class="wow fadeInUp animated">The government they survive artical of fortune</p>
-                <h1 class="wow fadeInUp animated" data-wow-delay="0.2s">We IMPROVE YOUR <br>SALES EFFICIENCY</h1> --}}
-                {{-- <a href="contact.html" class="theme-button-one wow fadeInUp animated" data-wow-delay="0.39s">CONTACT US</a> --}}
-            </div> <!-- /.container -->
-        </div> <!-- /.camera_caption -->
-    </div>
-    @endif
-</div> <!-- /#theme-main-banner -->
-
 <div class="about-compnay section-spacing">
     <div class="container">
         <div class="row">
@@ -79,28 +52,37 @@ $banners = Banner::orderBy('created_at','desc')->get();
                 <div class="col-lg-3 col-sm-6 col-12">
                     <div class="team-member">
                         <div class="image-box">
-                            <img src="{{asset('frontend/images/sosial.jpg')}}" alt="">
+                            <a href="{{asset('dokumen/pilar-sosial.pdf')}}">
+
+                                <img src="{{asset('frontend/images/sosial.jpg')}}" alt="">
+                            </a>
                         </div> <!-- /.image-box -->
                     </div> <!-- /.team-member -->
                 </div> <!-- /.col- -->
                 <div class="col-lg-3 col-sm-6 col-12">
                     <div class="team-member">
                         <div class="image-box">
-                            <img src="{{asset('frontend/images/hukum.jpg')}}" alt="">
+                            <a href="{{asset('dokumen/pilar-hukum')}}">
+                                <img src="{{asset('frontend/images/hukum.jpg')}}" alt="">
+                            </a>
                         </div> <!-- /.image-box -->
                     </div> <!-- /.team-member -->
                 </div> <!-- /.col- -->
                 <div class="col-lg-3 col-sm-6 col-12">
                     <div class="team-member">
                         <div class="image-box">
-                            <img src="{{asset('frontend/images/lingkungan.jpg')}}" alt="">
+                            <a href="{{asset('dokumen/pilar-lingkungan')}}">
+                                <img src="{{asset('frontend/images/lingkungan.jpg')}}" alt="">
+                            </a>
                         </div> <!-- /.image-box -->
                     </div> <!-- /.team-member -->
                 </div> <!-- /.col- -->
                 <div class="col-lg-3 col-sm-6 col-12">
                     <div class="team-member">
                         <div class="image-box">
-                            <img src="{{asset('frontend/images/pembangunan.jpg')}}" alt="">
+                            <a href="{{asset('dokumen/pilar-pembangunan')}}">
+                                <img src="{{asset('frontend/images/pembangunan.jpg')}}" alt="">
+                            </a>
                         </div> <!-- /.image-box -->
                     </div> <!-- /.team-member -->
                 </div> <!-- /.col- -->

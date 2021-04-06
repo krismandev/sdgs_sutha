@@ -1,3 +1,11 @@
+<?php
+
+use App\Banner;
+
+$banners = Banner::all();
+
+
+?>
 
 
 <!DOCTYPE html>
@@ -58,8 +66,30 @@
 			==============================================
 			-->
 
+            <div id="theme-main-banner" class="banner-one">
 
 
+            @if ($banners->count() != null)
+
+            @foreach ($banners as $banner)
+            <div data-src="{{asset('banner/'.$banner->gambar)}}">
+                <div class="camera_caption">
+                    <div class="container">
+
+                    </div>
+                </div>
+            </div>
+            @endforeach
+            @else
+            <div data-src="{{asset('frontend/images/home/slide-1.jpg')}}">
+                <div class="camera_caption">
+                    <div class="container">
+
+                    </div>
+                </div>
+            </div>
+            @endif
+            </div>
 
             @yield('content')
 

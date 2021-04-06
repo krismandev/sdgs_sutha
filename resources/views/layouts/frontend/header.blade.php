@@ -33,10 +33,10 @@
                             <li><a href="#">Data</a>
                                 <ul class="dropdown">
                                     <li><a href="{{route('dokumen')}}">Dokumen</a></li>
-                                    <li><a href="service-v2.html">Pilar Sosial</a></li>
-                                    <li><a href="service-details.html">Pilar Ekonomi</a></li>
-                                    <li><a href="service-details.html">Pilar Lingkungan</a></li>
-                                    <li><a href="service-details.html">Pilar Hukum</a></li>
+                                    <li><a href="{{route('sosial')}}">Pilar Sosial</a></li>
+                                    <li><a href="{{route('ekonomi')}}">Pilar Ekonomi</a></li>
+                                    <li><a href="{{route('lingkungan')}}">Pilar Lingkungan</a></li>
+                                    <li><a href="{{route('hukum')}}">Pilar Hukum</a></li>
                                </ul>
                             </li>
                             <li><a href="#">Kegiatan</a>

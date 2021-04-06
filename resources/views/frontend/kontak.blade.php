@@ -6,7 +6,7 @@
 <div class="contact-us-section section-spacing">
     <div class="container">
         <div class="theme-title-one">
-            <h2>GET IN TOUCH</h2>
+            <h2>Hubungi Kami</h2>
             <p>Hubungi kami dengan mengisi form dibawah ini.</p>
         </div> <!-- /.theme-title-one -->
         <div class="clearfix main-content no-gutters row">

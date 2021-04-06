@@ -24,7 +24,10 @@ Route::get('/berita/{id}/{slug}','BeritaController@showBerita')->name('showBerit
 Route::get('/tujuan-{id}','TujuanController@showTujuan')->name('showTujuan');
 Route::get('/kontak','KontakController@kontak')->name('kontak');
 Route::post('/kontak','KontakController@postkontak')->name('postKontak');
-
+Route::get('/pilar-sosial','DataController@sosial')->name('sosial');
+Route::get('/pilar-ekonomi','DataController@ekonomi')->name('ekonomi');
+Route::get('/pilar-hukum','DataController@hukum')->name('hukum');
+Route::get('/pilar-lingkungan','DataController@lingkungan')->name('lingkungan');
 // ----------------------------------------------------------------------------------------------------
 Route::group(['middleware'=>'auth','prefix' => 'admin'],function(){
     Route::get('/','Dashboard\HomeController@index')->name('dashboard');
