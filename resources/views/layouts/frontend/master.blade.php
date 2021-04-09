@@ -1,8 +1,10 @@
 <?php
 
 use App\Banner;
+use App\Mitra;
 
 $banners = Banner::all();
+$mitras = Mitra::inRandomOrder()->get();
 
 
 ?>
@@ -28,6 +30,7 @@ $banners = Banner::all();
 		<link rel="icon" type="image/png" sizes="56x56" href="{{asset('frontend/images/fav-icon/icon.png')}}">
 		<!-- Main style sheet -->
 		<link rel="stylesheet" type="text/css" href="{{asset('frontend/css/style.css')}}">
+        <link rel="stylesheet" href="{{asset('frontend/css/jquery.fancybox.min.css')}}">
 		<!-- responsive style sheet -->
 		<link rel="stylesheet" type="text/css" href="{{asset('frontend/css/responsive.css')}}">
 
@@ -102,11 +105,16 @@ $banners = Banner::all();
 						</div>
 						<div class="col-md-9 col-sm-8 col-12">
 							<div class="partner-slider">
-								<div class="item"><img src="{{asset('frontend/images/logo/p-1.png')}}" alt=""></div>
-								<div class="item"><img src="{{asset('frontend/images/logo/p-2.png')}}" alt=""></div>
+                                @if ($mitras->count() != null)
+                                @foreach ($mitras as $mitra)
+                                    <div class="item"><img src="{{asset('mitra/'.$mitra->gambar)}}" alt=""></div>
+                                @endforeach
+                                @endif
+
+								{{-- <div class="item"><img src="{{asset('frontend/images/logo/p-2.png')}}" alt=""></div>
 								<div class="item"><img src="{{asset('frontend/images/logo/p-3.png')}}" alt=""></div>
 								<div class="item"><img src="{{asset('frontend/images/logo/p-4.png')}}" alt=""></div>
-								<div class="item"><img src="{{asset('frontend/images/logo/p-5.png')}}" alt=""></div>
+								<div class="item"><img src="{{asset('frontend/images/logo/p-5.png')}}" alt=""></div> --}}
 							</div>
 						</div>
 					</div>
@@ -212,7 +220,8 @@ $banners = Banner::all();
 		<script src="{{asset('frontend/vendor/owl-carousel/owl.carousel.min.js')}}"></script>
 		<script src="{{asset('frontend/vendor/jquery.appear.js')}}"></script>
 		<script src="{{asset('frontend/vendor/jquery.countTo.js')}}"></script>
-		<script src="{{asset('frontend/vendor/fancybox/dist/jquery.fancybox.min.js')}}"></script>
+		{{-- <script src="{{asset('frontend/vendor/fancybox/dist/jquery.fancybox.min.js')}}"></script> --}}
+        <script src="{{asset('frontend/js/jquery.fancybox.min.js')}}"></script>
 		<script src="{{asset('frontend/js/theme.js')}}"></script>
         @yield('linkfooter')
 		</div>

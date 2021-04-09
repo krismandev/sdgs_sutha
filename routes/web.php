@@ -28,6 +28,7 @@ Route::get('/pilar-sosial','DataController@sosial')->name('sosial');
 Route::get('/pilar-ekonomi','DataController@ekonomi')->name('ekonomi');
 Route::get('/pilar-hukum','DataController@hukum')->name('hukum');
 Route::get('/pilar-lingkungan','DataController@lingkungan')->name('lingkungan');
+Route::get('/galeri-kegiatan','KegiatanController@galeri')->name('galeri');
 // ----------------------------------------------------------------------------------------------------
 Route::group(['middleware'=>'auth','prefix' => 'admin'],function(){
     Route::get('/','Dashboard\HomeController@index')->name('dashboard');
@@ -77,5 +78,11 @@ Route::group(['middleware'=>'auth','prefix' => 'admin'],function(){
         Route::get('/','Dashboard\InboxController@getInbox')->name('getInbox');
         Route::get('/{id}','Dashboard\InboxController@showMessage')->name('showMessage');
         Route::patch('/','Dashboard\InboxController@updateInbox')->name('updateInbox');
+    });
+
+    Route::group(['prefix' => 'mitra'],function(){
+        Route::get('/','Dashboard\MitraController@getMitra')->name('getMitra');
+        Route::post('/','Dashboard\MitraController@postMitra')->name('postMitra');
+        Route::get('/delete/{id}','Dashboard\MitraController@deleteMitra')->name('deleteMitra');
     });
 });

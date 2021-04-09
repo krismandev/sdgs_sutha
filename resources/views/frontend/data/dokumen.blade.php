@@ -1,5 +1,7 @@
 @extends('layouts.frontend.master')
-
+@section('title')
+    Dokumen
+@endsection
 @section('content')
 <style>
     .blog-grid{

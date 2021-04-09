@@ -41,8 +41,8 @@
                             </li>
                             <li><a href="#">Kegiatan</a>
                                 <ul class="dropdown">
-                                    <li><a href="project.html">Galleri</a></li>
-                                    <li><a href="project-details.html">SDGs Festival</a></li>
+                                    <li><a href="{{route('galeri')}}">Galleri</a></li>
+                                    {{-- <li><a href="project-details.html">SDGs Festival</a></li> --}}
                                </ul>
                             </li>
                             <li><a href="{{route('berita')}}">Berita</a>

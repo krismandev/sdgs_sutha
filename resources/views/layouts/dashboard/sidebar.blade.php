@@ -29,6 +29,9 @@
                     <a href="{{route('getTujuan')}}" aria-expanded="false" class="{{(request()->is('admin/tujuan*'))?'active': ''}}"><i class="fa fa-file"></i> <span class="hide-menu">Tujuan SDGs</span></a>
                 </li>
                 <li>
+                    <a href="{{route('getMitra')}}" aria-expanded="false" class="{{(request()->is('admin/mitra*'))?'active': ''}}"><i class="fa fa-file"></i> <span class="hide-menu">Mitra</span></a>
+                </li>
+                <li>
                     <a href="{{route('getInbox')}}" aria-expanded="false" class="{{(request()->is('admin/inbox*'))?'active': ''}}"><i class="fa fa-file"></i> <span class="hide-menu">Inbox</span></a>
                 </li>
             </ul>

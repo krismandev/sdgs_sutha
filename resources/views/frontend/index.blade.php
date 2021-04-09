@@ -62,7 +62,7 @@ $banners = Banner::orderBy('created_at','desc')->get();
                 <div class="col-lg-3 col-sm-6 col-12">
                     <div class="team-member">
                         <div class="image-box">
-                            <a href="{{asset('dokumen/pilar-hukum')}}">
+                            <a href="{{asset('dokumen/pilar-hukum.pdf')}}">
                                 <img src="{{asset('frontend/images/hukum.jpg')}}" alt="">
                             </a>
                         </div> <!-- /.image-box -->
@@ -71,7 +71,7 @@ $banners = Banner::orderBy('created_at','desc')->get();
                 <div class="col-lg-3 col-sm-6 col-12">
                     <div class="team-member">
                         <div class="image-box">
-                            <a href="{{asset('dokumen/pilar-lingkungan')}}">
+                            <a href="{{asset('dokumen/pilar-lingkungan.pdf')}}">
                                 <img src="{{asset('frontend/images/lingkungan.jpg')}}" alt="">
                             </a>
                         </div> <!-- /.image-box -->
@@ -80,8 +80,8 @@ $banners = Banner::orderBy('created_at','desc')->get();
                 <div class="col-lg-3 col-sm-6 col-12">
                     <div class="team-member">
                         <div class="image-box">
-                            <a href="{{asset('dokumen/pilar-pembangunan')}}">
-                                <img src="{{asset('frontend/images/pembangunan.jpg')}}" alt="">
+                            <a href="{{asset('dokumen/pilar-ekonomi.pdf')}}">
+                                <img src="{{asset('frontend/images/ekonomi.jpg')}}" alt="">
                             </a>
                         </div> <!-- /.image-box -->
                     </div> <!-- /.team-member -->
