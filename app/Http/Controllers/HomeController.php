@@ -31,4 +31,10 @@ class HomeController extends Controller
         $beritas = Berita::orderBy('created_at','desc')->paginate(3);
         return view('frontend.index',compact(['tentang','beritas','tujuans']));
     }
+
+    public function tentang()
+    {
+        $tentang = Tentang::first();
+        return view('frontend.tentang',compact(['tentang']));
+    }
 }

@@ -11,7 +11,10 @@
         <nav class="sidebar-nav">
             <ul id="side-menu">
                 <li>
-                    <a href="{{route('getBanner')}}" aria-expanded="false" class="{{(request()->is('admin/banner*'))?'active': ''}}"><i class="icon-book-open"></i> <span class="hide-menu">Banner</span></a>
+                    <a href="{{route('dashboard')}}" aria-expanded="false" class="{{(request()->is('admin'))?'active': ''}}"><i class="icon-screen-desktop fa-fw"></i> <span class="hide-menu">Dashboard</span></a>
+                </li>
+                <li>
+                    <a href="{{route('getBanner')}}" aria-expanded="false" class="{{(request()->is('admin/banner*'))?'active': ''}}"><i class="fa fa-picture-o"></i> <span class="hide-menu">Banner</span></a>
                 </li>
                 <li>
                     <a href="{{route('getBerita')}}" aria-expanded="false" class="{{(request()->is('admin/berita*'))?'active': ''}}"><i class="icon-book-open"></i> <span class="hide-menu">Berita</span></a>
@@ -23,16 +26,16 @@
                     <a href="{{route('getDokumen')}}" aria-expanded="false" class="{{(request()->is('admin/dokumen*'))?'active': ''}}"><i class="fa fa-file"></i> <span class="hide-menu">Dokumen</span></a>
                 </li>
                 <li>
-                    <a href="{{route('getGaleri')}}" aria-expanded="false" class="{{(request()->is('admin/galeri*'))?'active': ''}}"><i class="fa fa-file"></i> <span class="hide-menu">Galeri</span></a>
+                    <a href="{{route('getGaleri')}}" aria-expanded="false" class="{{(request()->is('admin/galeri*'))?'active': ''}}"><i class="fa fa-file-picture-o"></i> <span class="hide-menu">Galeri</span></a>
                 </li>
                 <li>
-                    <a href="{{route('getTujuan')}}" aria-expanded="false" class="{{(request()->is('admin/tujuan*'))?'active': ''}}"><i class="fa fa-file"></i> <span class="hide-menu">Tujuan SDGs</span></a>
+                    <a href="{{route('getTujuan')}}" aria-expanded="false" class="{{(request()->is('admin/tujuan*'))?'active': ''}}"><i class="fa fa-info"></i> <span class="hide-menu">Tujuan SDGs</span></a>
                 </li>
                 <li>
-                    <a href="{{route('getMitra')}}" aria-expanded="false" class="{{(request()->is('admin/mitra*'))?'active': ''}}"><i class="fa fa-file"></i> <span class="hide-menu">Mitra</span></a>
+                    <a href="{{route('getMitra')}}" aria-expanded="false" class="{{(request()->is('admin/mitra*'))?'active': ''}}"><i class="icon-globe"></i> <span class="hide-menu">Mitra</span></a>
                 </li>
                 <li>
-                    <a href="{{route('getInbox')}}" aria-expanded="false" class="{{(request()->is('admin/inbox*'))?'active': ''}}"><i class="fa fa-file"></i> <span class="hide-menu">Inbox</span></a>
+                    <a href="{{route('getInbox')}}" aria-expanded="false" class="{{(request()->is('admin/inbox*'))?'active': ''}}"><i class="icon-envelope-letter fa-fw"></i> <span class="hide-menu">Inbox</span></a>
                 </li>
             </ul>
         </nav>

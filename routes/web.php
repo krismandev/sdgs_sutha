@@ -29,6 +29,7 @@ Route::get('/pilar-ekonomi','DataController@ekonomi')->name('ekonomi');
 Route::get('/pilar-hukum','DataController@hukum')->name('hukum');
 Route::get('/pilar-lingkungan','DataController@lingkungan')->name('lingkungan');
 Route::get('/galeri-kegiatan','KegiatanController@galeri')->name('galeri');
+Route::get('/tentang','HomeController@tentang')->name('tentang');
 // ----------------------------------------------------------------------------------------------------
 Route::group(['middleware'=>'auth','prefix' => 'admin'],function(){
     Route::get('/','Dashboard\HomeController@index')->name('dashboard');

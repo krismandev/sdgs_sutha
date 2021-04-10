@@ -75,7 +75,7 @@ $mitras = Mitra::inRandomOrder()->get();
             @if ($banners->count() != null)
 
             @foreach ($banners as $banner)
-            <div data-src="{{asset('banner/'.$banner->gambar)}}">
+            <div data-src="{{url('banner/'.$banner->gambar)}}">
                 <div class="camera_caption">
                     <div class="container">
 

@@ -28,7 +28,7 @@
                        <ul class="clearfix">
                             <li class="active"><a href="{{route('index')}}">Beranda</a>
                             </li>
-                            <li class="active"><a href="#">Tentang</a>
+                            <li class="active"><a href="{{route('tentang')}}">Tentang</a>
                             </li>
                             <li><a href="#">Data</a>
                                 <ul class="dropdown">
