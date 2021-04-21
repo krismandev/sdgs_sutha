@@ -13,7 +13,9 @@
                         <div class="col-md-3 col-12">
                             <div class="single-blog">
                                 <div class="image-box">
-                                    <img src="{{url('galeri/'.$galeri->gambar)}}" alt="" class="galeri">
+                                    <a href="{{url('galeri/'.$galeri->gambar)}}" data-fancybox="gallery">
+                                        <img src="{{url('galeri/'.$galeri->gambar)}}" alt="" class="galeri">
+                                    </a>
                                 </div> <!-- /.image-box -->
                             </div> <!-- /.single-blog -->
                         </div> <!-- /.col- -->

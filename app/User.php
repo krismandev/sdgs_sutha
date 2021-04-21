@@ -16,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password','gambar','role'
     ];
 
     /**
@@ -40,5 +40,14 @@ class User extends Authenticatable
     public function berita()
     {
         return $this->hasMany(Berita::class,'user_id','id');
+    }
+
+    public function getImage()
+    {
+        if ($this->gambar == null) {
+            return asset("user/default.png");
+        }else {
+            return url("user/".$this->gambar);
+        }
     }
 }

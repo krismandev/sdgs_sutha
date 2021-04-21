@@ -28,7 +28,12 @@
                        <ul class="clearfix">
                             <li class="active"><a href="{{route('index')}}">Beranda</a>
                             </li>
-                            <li class="active"><a href="{{route('tentang')}}">Tentang</a>
+                            <li class="active"><a href="#">Tentang</a>
+                                <ul class="dropdown">
+                                    <li><a href="{{route('tentang')}}">Tentang SDGs Sutha</a></li>
+                                    <li><a href="{{route('petaKampus')}}">Peta Kampus</a></li>
+                                    <li><a href="https://www.uinjambi.ac.id" target="_blank">Profil Kampus</a></li>
+                               </ul>
                             </li>
                             <li><a href="#">Data</a>
                                 <ul class="dropdown">

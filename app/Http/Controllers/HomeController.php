@@ -37,4 +37,10 @@ class HomeController extends Controller
         $tentang = Tentang::first();
         return view('frontend.tentang',compact(['tentang']));
     }
+
+    public function petaKampus()
+    {
+        return view('frontend.petakampus');
+    }
+
 }

@@ -138,6 +138,13 @@ $banners = Banner::orderBy('created_at','desc')->get();
                 </div> <!-- /.col- -->
                 @endforeach
                 @endif
+                <div class="col-lg-2 col-sm-6 col-12 mb-1">
+                    <div class="team-member">
+                        <div class="image-box">
+                            <a href="#"><img src="{{asset('images/TPB-Logo.jpg')}}" alt="" class="tujuanimg"></a>
+                        </div> <!-- /.image-box -->
+                    </div> <!-- /.team-member -->
+                </div> <!-- /.col- -->
             </div> <!-- /.row -->
         </div> <!-- /.container -->
     </div> <!-- /.overlay -->

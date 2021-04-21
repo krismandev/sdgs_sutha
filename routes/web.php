@@ -30,6 +30,7 @@ Route::get('/pilar-hukum','DataController@hukum')->name('hukum');
 Route::get('/pilar-lingkungan','DataController@lingkungan')->name('lingkungan');
 Route::get('/galeri-kegiatan','KegiatanController@galeri')->name('galeri');
 Route::get('/tentang','HomeController@tentang')->name('tentang');
+Route::get('/maps','HomeController@petaKampus')->name('petaKampus');
 // ----------------------------------------------------------------------------------------------------
 Route::group(['middleware'=>'auth','prefix' => 'admin'],function(){
     Route::get('/','Dashboard\HomeController@index')->name('dashboard');
@@ -86,4 +87,17 @@ Route::group(['middleware'=>'auth','prefix' => 'admin'],function(){
         Route::post('/','Dashboard\MitraController@postMitra')->name('postMitra');
         Route::get('/delete/{id}','Dashboard\MitraController@deleteMitra')->name('deleteMitra');
     });
+
+    Route::group(['prefix' => 'users'],function(){
+        Route::get('/','Dashboard\UserController@getUsers')->name('getUsers');
+        Route::post('/','Dashboard\UserController@postUser')->name('postUser');
+    });
+
+    Route::group(['prefix' => 'profile'],function(){
+        Route::get('/','Dashboard\UserController@profile')->name('profile');
+        Route::patch('/','Dashboard\UserController@updateProfile')->name('updateProfile');
+    });
+
+    Route::patch('/password','Dashboard\UserController@updatePassword')->name('updatePassword');
+    Route::get('/logout','Dashboard\UserController@logout')->name('logout');
 });

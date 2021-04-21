@@ -107,7 +107,7 @@ $mitras = Mitra::inRandomOrder()->get();
 							<div class="partner-slider">
                                 @if ($mitras->count() != null)
                                 @foreach ($mitras as $mitra)
-                                    <div class="item"><img src="{{asset('mitra/'.$mitra->gambar)}}" alt=""></div>
+                                    <div class="item"><img src="{{url('mitra/'.$mitra->gambar)}}" alt=""></div>
                                 @endforeach
                                 @endif
 
