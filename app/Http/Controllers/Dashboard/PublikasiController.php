@@ -291,4 +291,11 @@ class PublikasiController extends Controller
         return redirect()->route('getReport');
 
     }
+
+    public function deleteReport($id)
+    {
+        $report = Report::find($id);
+        $report->delete();
+        return back();
+    }
 }
