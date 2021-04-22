@@ -26,6 +26,14 @@
                     <a href="{{route('getDokumen')}}" aria-expanded="false" class="{{(request()->is('admin/dokumen*'))?'active': ''}}"><i class="fa fa-file"></i> <span class="hide-menu">Dokumen</span></a>
                 </li>
                 <li>
+                    <a class="active waves-effect" href="javascript:void(0);" aria-expanded="false" class="{{(request()->is('admin/publikasi*'))?'active': ''}}"><i class="icon-screen-desktop fa-fw"></i> <span class="hide-menu"> Publikasi </span></a>
+                    <ul aria-expanded="false" class="collapse">
+                        <li> <a href="{{route('getJurnal')}}">Jurnal</a> </li>
+                        <li> <a href="{{route('getBuku')}}">Buku</a> </li>
+                        <li> <a href="{{route('getReport')}}">SDGs Annual Report</a> </li>
+                    </ul>
+                </li>
+                <li>
                     <a href="{{route('getGaleri')}}" aria-expanded="false" class="{{(request()->is('admin/galeri*'))?'active': ''}}"><i class="fa fa-file-picture-o"></i> <span class="hide-menu">Galeri</span></a>
                 </li>
                 <li>

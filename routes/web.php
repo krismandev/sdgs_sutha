@@ -98,6 +98,30 @@ Route::group(['middleware'=>'auth','prefix' => 'admin'],function(){
         Route::patch('/','Dashboard\UserController@updateProfile')->name('updateProfile');
     });
 
+    Route::group(['prefix' => 'jurnal'],function(){
+        Route::get('/','Dashboard\PublikasiController@getJurnal')->name('getJurnal');
+        Route::post('/','Dashboard\PublikasiController@postJurnal')->name('postJurnal');
+        Route::get('/{id}','Dashboard\PublikasiController@editJurnal')->name('editJurnal');
+        Route::patch('/','Dashboard\PublikasiController@updateJurnal')->name('updateJurnal');
+        Route::get('/delete/{id}','Dashboard\PublikasiController@deleteJurnal')->name('deleteJurnal');
+    });
+
+    Route::group(['prefix' => 'buku'],function(){
+        Route::get('/','Dashboard\PublikasiController@getBuku')->name('getBuku');
+        Route::post('/','Dashboard\PublikasiController@postBuku')->name('postBuku');
+        Route::get('/{id}','Dashboard\PublikasiController@editBuku')->name('editBuku');
+        Route::patch('/','Dashboard\PublikasiController@updateBuku')->name('updateBuku');
+        Route::get('/delete/{id}','Dashboard\PublikasiController@deleteBuku')->name('deleteBuku');
+    });
+
+    Route::group(['prefix' => 'annual-report'],function(){
+        Route::get('/','Dashboard\PublikasiController@getReport')->name('getReport');
+        Route::post('/','Dashboard\PublikasiController@postReport')->name('postReport');
+        Route::get('/{id}','Dashboard\PublikasiController@editReport')->name('editReport');
+        Route::patch('/','Dashboard\PublikasiController@updateReport')->name('updateReport');
+        Route::get('/delete/{id}','Dashboard\PublikasiController@deleteReport')->name('deleteReport');
+    });
+
     Route::patch('/password','Dashboard\UserController@updatePassword')->name('updatePassword');
     Route::get('/logout','Dashboard\UserController@logout')->name('logout');
 });

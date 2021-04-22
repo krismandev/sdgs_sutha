@@ -50,6 +50,14 @@
                                     {{-- <li><a href="project-details.html">SDGs Festival</a></li> --}}
                                </ul>
                             </li>
+                            <li><a href="#">Publikasi</a>
+                                <ul class="dropdown">
+                                    <li><a href="#">Jurnal</a></li>
+                                    <li><a href="#">Buku</a></li>
+                                    <li><a href="#">SDGs Annual Report</a></li>
+
+                               </ul>
+                            </li>
                             <li><a href="{{route('berita')}}">Berita</a>
                             </li>
                             <li><a href="{{route('kontak')}}">Kontak</a></li>
