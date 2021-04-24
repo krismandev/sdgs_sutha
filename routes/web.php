@@ -31,6 +31,15 @@ Route::get('/pilar-lingkungan','DataController@lingkungan')->name('lingkungan');
 Route::get('/galeri-kegiatan','KegiatanController@galeri')->name('galeri');
 Route::get('/tentang','HomeController@tentang')->name('tentang');
 Route::get('/maps','HomeController@petaKampus')->name('petaKampus');
+Route::get('/buku','PublikasiController@buku')->name('buku');
+Route::get('/jurnal','PublikasiController@jurnal')->name('jurnal');
+Route::get('/report','PublikasiController@report')->name('report');
+Route::get('/webinar','KegiatanController@webinar')->name('webinar');
+Route::get('/seminar&conference','KegiatanController@seminar')->name('seminar');
+Route::get('/pengabdian','KegiatanController@pengabdian')->name('pengabdian');
+Route::get('/survey','KegiatanController@survey')->name('survey');
+
+
 // ----------------------------------------------------------------------------------------------------
 Route::group(['middleware'=>'auth','prefix' => 'admin'],function(){
     Route::get('/','Dashboard\HomeController@index')->name('dashboard');
@@ -120,6 +129,32 @@ Route::group(['middleware'=>'auth','prefix' => 'admin'],function(){
         Route::get('/{id}','Dashboard\PublikasiController@editReport')->name('editReport');
         Route::patch('/','Dashboard\PublikasiController@updateReport')->name('updateReport');
         Route::get('/delete/{id}','Dashboard\PublikasiController@deleteReport')->name('deleteReport');
+    });
+
+    Route::group(['prefix' => 'kegiatan'],function(){
+        Route::group(['prefix' => 'webinar'],function(){
+            Route::get('/','Dashboard\KegiatanController@getWebinar')->name('getWebinar');
+            Route::post('/','Dashboard\KegiatanController@postWebinar')->name('postWebinar');
+            Route::get('/delete/{id}','Dashboard\KegiatanController@deleteWebinar')->name('deleteWebinar');
+        });
+
+        Route::group(['prefix' => 'seminar'],function(){
+            Route::get('/','Dashboard\KegiatanController@getSeminar')->name('getSeminar');
+            Route::post('/','Dashboard\KegiatanController@postSeminar')->name('postSeminar');
+            Route::get('/delete/{id}','Dashboard\KegiatanController@deleteSeminar')->name('deleteSeminar');
+        });
+
+        Route::group(['prefix' => 'pengabdian'],function(){
+            Route::get('/','Dashboard\KegiatanController@getPengabdian')->name('getPengabdian');
+            Route::post('/','Dashboard\KegiatanController@postPengabdian')->name('postPengabdian');
+            Route::get('/delete/{id}','Dashboard\KegiatanController@deletePengabdian')->name('deletePengabdian');
+        });
+
+        Route::group(['prefix' => 'survey'],function(){
+            Route::get('/','Dashboard\KegiatanController@getSurvey')->name('getSurvey');
+            Route::post('/','Dashboard\KegiatanController@postSurvey')->name('postSurvey');
+            Route::get('/delete/{id}','Dashboard\KegiatanController@deleteSurvey')->name('deleteSurvey');
+        });
     });
 
     Route::patch('/password','Dashboard\UserController@updatePassword')->name('updatePassword');

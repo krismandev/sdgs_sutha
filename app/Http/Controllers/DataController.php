@@ -9,7 +9,7 @@ class DataController extends Controller
 {
     public function dokumen()
     {
-        $dokumens = Dokumen::orderBy('created_at','desc')->get();
+        $dokumens = Dokumen::orderBy('created_at','desc')->paginate(9);
         return view('frontend.data.dokumen',compact(['dokumens']));
     }
 

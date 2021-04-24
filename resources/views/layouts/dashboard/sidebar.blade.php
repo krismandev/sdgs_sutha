@@ -10,6 +10,17 @@
         </div>
         <nav class="sidebar-nav">
             <ul id="side-menu">
+                {{-- <li>
+                    <a class="waves-effect" href="javascript:void(0);" aria-expanded="false"><i class="icon-basket fa-fw"></i> <span class="hide-menu"> eCommerce </span></a>
+                    <ul aria-expanded="false" class="collapse">
+                        <li> <a href="">Webinar</a> </li>
+                        <li> <a href="">Seminars & Conferences</a> </li>
+                        <li> <a href="">Pengabdian</a></li>
+                        <li> <a href="">Survey</a> </li>
+                        <li> <a href="">Buku</a> </li>
+                        <li> <a href="{{route('getGaleri')}}">Galeri</a> </li>
+                    </ul>
+                </li> --}}
                 <li>
                     <a href="{{route('dashboard')}}" aria-expanded="false" class="{{(request()->is('admin'))?'active': ''}}"><i class="icon-screen-desktop fa-fw"></i> <span class="hide-menu">Dashboard</span></a>
                 </li>
@@ -26,7 +37,7 @@
                     <a href="{{route('getDokumen')}}" aria-expanded="false" class="{{(request()->is('admin/dokumen*'))?'active': ''}}"><i class="fa fa-file"></i> <span class="hide-menu">Dokumen</span></a>
                 </li>
                 <li>
-                    <a class="active waves-effect" href="javascript:void(0);" aria-expanded="false" class="{{(request()->is('admin/publikasi*'))?'active': ''}}"><i class="icon-screen-desktop fa-fw"></i> <span class="hide-menu"> Publikasi </span></a>
+                    <a class="waves-effect {{(request()->is('admin/publikasi*'))?'active': ''}}" href="javascript:void(0);" aria-expanded="false"><i class="icon-screen-desktop fa-fw"></i> <span class="hide-menu"> Publikasi </span></a>
                     <ul aria-expanded="false" class="collapse">
                         <li> <a href="{{route('getJurnal')}}">Jurnal</a> </li>
                         <li> <a href="{{route('getBuku')}}">Buku</a> </li>
@@ -34,8 +45,15 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="{{route('getGaleri')}}" aria-expanded="false" class="{{(request()->is('admin/galeri*'))?'active': ''}}"><i class="fa fa-file-picture-o"></i> <span class="hide-menu">Galeri</span></a>
+                    <a class="waves-effect {{(request()->is('admin/kegiatan*'))?'active': ''}}" href="javascript:void(0);" aria-expanded="false"><i class="icon-pin fa-fw"></i> <span class="hide-menu"> Kegiatan </span></a>
+                    <ul aria-expanded="false" class="collapse">
+                        <li> <a href="{{route('getWebinar')}}">Webinar</a> </li>
+                        <li> <a href="{{route('getSeminar')}}">Seminars & Conferences</a> </li>
+                        <li> <a href="{{route('getPengabdian')}}">Pengabdian</a></li>
+                        <li> <a href="{{route('getSurvey')}}">Survey</a> </li>
+                    </ul>
                 </li>
+
                 <li>
                     <a href="{{route('getTujuan')}}" aria-expanded="false" class="{{(request()->is('admin/tujuan*'))?'active': ''}}"><i class="fa fa-info"></i> <span class="hide-menu">Tujuan SDGs</span></a>
                 </li>

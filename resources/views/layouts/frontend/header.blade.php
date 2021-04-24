@@ -46,15 +46,18 @@
                             </li>
                             <li><a href="#">Kegiatan</a>
                                 <ul class="dropdown">
-                                    <li><a href="{{route('galeri')}}">Galleri</a></li>
+                                    <li><a href="{{route('webinar')}}">Webinar</a></li>
+                                    <li><a href="{{route('seminar')}}">Seminar & Conference</a></li>
+                                    <li><a href="{{route('pengabdian')}}">Pengabdian</a></li>
+                                    <li><a href="{{route('survey')}}">Survey</a></li>
                                     {{-- <li><a href="project-details.html">SDGs Festival</a></li> --}}
                                </ul>
                             </li>
                             <li><a href="#">Publikasi</a>
                                 <ul class="dropdown">
-                                    <li><a href="#">Jurnal</a></li>
-                                    <li><a href="#">Buku</a></li>
-                                    <li><a href="#">SDGs Annual Report</a></li>
+                                    <li><a href="{{route('jurnal')}}">Jurnal</a></li>
+                                    <li><a href="{{route('buku')}}">Buku</a></li>
+                                    <li><a href="{{route('report')}}">SDGs Annual Report</a></li>
 
                                </ul>
                             </li>
