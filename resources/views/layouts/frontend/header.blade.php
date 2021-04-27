@@ -61,6 +61,7 @@
 
                                </ul>
                             </li>
+                            <li><a href="{{route('research')}}">OurResearch</a>
                             <li><a href="{{route('berita')}}">Berita</a>
                             </li>
                             <li><a href="{{route('kontak')}}">Kontak</a></li>

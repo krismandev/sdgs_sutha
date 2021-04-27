@@ -55,6 +55,9 @@
                 </li>
 
                 <li>
+                    <a href="{{route('getResearch')}}" aria-expanded="false" class="{{(request()->is('admin/research*'))?'active': ''}}"><i class="icon-grid"></i> <span class="hide-menu">Research</span></a>
+                </li>
+                <li>
                     <a href="{{route('getTujuan')}}" aria-expanded="false" class="{{(request()->is('admin/tujuan*'))?'active': ''}}"><i class="fa fa-info"></i> <span class="hide-menu">Tujuan SDGs</span></a>
                 </li>
                 <li>

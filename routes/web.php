@@ -38,6 +38,8 @@ Route::get('/webinar','KegiatanController@webinar')->name('webinar');
 Route::get('/seminar&conference','KegiatanController@seminar')->name('seminar');
 Route::get('/pengabdian','KegiatanController@pengabdian')->name('pengabdian');
 Route::get('/survey','KegiatanController@survey')->name('survey');
+Route::get('/our-research','ResearchController@research')->name('research');
+Route::get('/our-research/{id}','ResearchController@detailResearch')->name('detailResearch');
 
 
 // ----------------------------------------------------------------------------------------------------
@@ -155,6 +157,16 @@ Route::group(['middleware'=>'auth','prefix' => 'admin'],function(){
             Route::post('/','Dashboard\KegiatanController@postSurvey')->name('postSurvey');
             Route::get('/delete/{id}','Dashboard\KegiatanController@deleteSurvey')->name('deleteSurvey');
         });
+    });
+
+    Route::group(['prefix' => 'research'],function(){
+        Route::get('/','Dashboard\ResearchController@getResearch')->name('getResearch');
+        Route::get('/create','Dashboard\ResearchController@createResearch')->name('createResearch');
+        Route::get('/{id}','Dashboard\ResearchController@editResearch')->name('editResearch');
+        Route::post('/','Dashboard\ResearchController@postResearch')->name('postResearch');
+        Route::get('/delete/{id}','Dashboard\ResearchController@deleteResearch')->name('deleteResearch');
+        Route::patch('/','Dashboard\ResearchController@updateResearch')->name('updateResearch');
+
     });
 
     Route::patch('/password','Dashboard\UserController@updatePassword')->name('updatePassword');
