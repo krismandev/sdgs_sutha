@@ -19,15 +19,33 @@ class TentangController extends Controller
     {
         $request->validate([
             'tentang'=>'required'
+            // 'gambar'=>'required'
         ]);
+
+        // dd($request->gambar);
+
         $tentang = Tentang::first();
+
+        if ($request->has('gambar')) {
+            $gambar = $request->file('gambar');
+            $nama_gambar = time()."_".$gambar->getClientOriginalName();
+            $tujuan_upload = 'images';
+            $gambar->move($tujuan_upload,$nama_gambar);
+        }else{
+            $nama_gambar = $tentang->gambar;
+        }
+
+
+
         if ($tentang != null) {
             $tentang->update([
-                'tentang'=> $request->tentang
+                'tentang'=> $request->tentang,
+                'gambar'=> $nama_gambar
             ]);
         }else {
             Tentang::create([
-                'tentang'=>$request->tentang
+                'tentang'=>$request->tentang,
+                'gambar' => $nama_gambar
             ]);
         }
 

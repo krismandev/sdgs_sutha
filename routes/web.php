@@ -169,6 +169,12 @@ Route::group(['middleware'=>'auth','prefix' => 'admin'],function(){
 
     });
 
+    Route::group(['prefix' => 'pilar-sdgs'],function(){
+        Route::get('/','Dashboard\PilarController@getPilar')->name('getPilar');
+        Route::post('/','Dashboard\PilarController@postPilar')->name('postPilar');
+        Route::get('/delete/{id}','Dashboard\PilarController@deletePilar')->name('deletePilar');
+    });
+
     Route::patch('/password','Dashboard\UserController@updatePassword')->name('updatePassword');
     Route::get('/logout','Dashboard\UserController@logout')->name('logout');
 });

@@ -55,6 +55,10 @@
                 </li>
 
                 <li>
+                    <a href="{{route('getPilar')}}" aria-expanded="false" class="{{(request()->is('admin/pilar-sdgs*'))?'active': ''}}"><i class="icon-grid"></i> <span class="hide-menu">Pilar SDGs</span></a>
+                </li>
+
+                <li>
                     <a href="{{route('getResearch')}}" aria-expanded="false" class="{{(request()->is('admin/research*'))?'active': ''}}"><i class="icon-grid"></i> <span class="hide-menu">Research</span></a>
                 </li>
                 <li>

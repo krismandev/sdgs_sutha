@@ -32,7 +32,7 @@ $banners = Banner::orderBy('created_at','desc')->get();
 <div class="about-compnay section-spacing">
     <div class="container">
         <div class="row">
-            <div class="col-lg-6 col-12"><img src="{{asset('frontend/images/home/1.jpg')}}" alt=""></div>
+            <div class="col-lg-6 col-12"><img src="{{url('images/'.$tentang->gambar)}}" alt="" style="width: 550px; height: 410px;"></div>
             <div class="col-lg-6 col-12">
                 <div class="text">
                     <div class="theme-title-one">
@@ -49,43 +49,19 @@ $banners = Banner::orderBy('created_at','desc')->get();
     <div class="overlay">
         <div class="container">
             <div class="row">
+                @if ($pilars->count() != null)
+                @foreach ($pilars as $pilar)
                 <div class="col-lg-3 col-sm-6 col-12">
                     <div class="team-member">
                         <div class="image-box">
-                            <a href="{{asset('dokumen/pilar-sosial.pdf')}}">
-
-                                <img src="{{asset('frontend/images/sosial.jpg')}}" alt="">
+                            <a href="{{url('pilar/'.$pilar->file)}}">
+                                <img src="{{url('pilar/'.$pilar->gambar)}}" alt="">
                             </a>
                         </div> <!-- /.image-box -->
                     </div> <!-- /.team-member -->
                 </div> <!-- /.col- -->
-                <div class="col-lg-3 col-sm-6 col-12">
-                    <div class="team-member">
-                        <div class="image-box">
-                            <a href="{{asset('dokumen/pilar-hukum.pdf')}}">
-                                <img src="{{asset('frontend/images/hukum.jpg')}}" alt="">
-                            </a>
-                        </div> <!-- /.image-box -->
-                    </div> <!-- /.team-member -->
-                </div> <!-- /.col- -->
-                <div class="col-lg-3 col-sm-6 col-12">
-                    <div class="team-member">
-                        <div class="image-box">
-                            <a href="{{asset('dokumen/pilar-lingkungan.pdf')}}">
-                                <img src="{{asset('frontend/images/lingkungan.jpg')}}" alt="">
-                            </a>
-                        </div> <!-- /.image-box -->
-                    </div> <!-- /.team-member -->
-                </div> <!-- /.col- -->
-                <div class="col-lg-3 col-sm-6 col-12">
-                    <div class="team-member">
-                        <div class="image-box">
-                            <a href="{{asset('dokumen/pilar-ekonomi.pdf')}}">
-                                <img src="{{asset('frontend/images/ekonomi.jpg')}}" alt="">
-                            </a>
-                        </div> <!-- /.image-box -->
-                    </div> <!-- /.team-member -->
-                </div> <!-- /.col- -->
+                @endforeach
+                @endif
             </div> <!-- /.row -->
         </div> <!-- /.container -->
     </div> <!-- /.overlay -->

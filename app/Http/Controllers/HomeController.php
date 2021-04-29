@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Tentang;
 use App\Berita;
 use App\Tujuan;
+use App\Pilar;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -29,7 +30,8 @@ class HomeController extends Controller
         $tujuans = Tujuan::orderBy('id','asc')->get();
         $tentang = Tentang::first();
         $beritas = Berita::orderBy('created_at','desc')->paginate(3);
-        return view('frontend.index',compact(['tentang','beritas','tujuans']));
+        $pilars = Pilar::orderBy('created_at','asc')->get();
+        return view('frontend.index',compact(['tentang','beritas','tujuans','pilars']));
     }
 
     public function tentang()
@@ -42,5 +44,6 @@ class HomeController extends Controller
     {
         return view('frontend.petakampus');
     }
+
 
 }
