@@ -21,18 +21,16 @@ class KontakController extends Controller
             'pesan' => 'required'
         ]);
 
-        $to = "krismanpratama@gmail.com";
+        $to = "sdgscenter@uinjambi.ac.id";
 
         $message = $this->getMessage($request->nama,$request->subject,$request->email, $request->hp, $request->pesan);
 
         $headers = "MIME-Version: 1.0" . "\r\n";
         $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
         $headers .= "From: <".$request->email."> \r\n";
-        $headers .= "CC: ".$request->email. " \r\n";
+        // $headers .= "CC: ".$request->email. " \r\n";
 
 
-
-        $pengirim	= 'Dari: '.$request->nama.' <'.$request->email.'>';
 
         @mail($to,$request->subject,$message,$headers);
 
@@ -64,16 +62,16 @@ class KontakController extends Controller
             <body>
                 <h1>
                     ".$subject."
-                </h1><br>
+                </h1>
                 <h2>
                     Nama : ".$nama."
-                </h2><br>
+                </h2>
                 <h2>
                     Email : ".$email."
-                </h2><br>
+                </h2>
                 <h2>
                     HP: ".$hp."
-                <h2><br>
+                <h2>
 
                 <p>".$pesan."<p>
             </body>
