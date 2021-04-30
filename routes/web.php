@@ -40,7 +40,7 @@ Route::get('/pengabdian','KegiatanController@pengabdian')->name('pengabdian');
 Route::get('/survey','KegiatanController@survey')->name('survey');
 Route::get('/our-research','ResearchController@research')->name('research');
 Route::get('/our-research/{id}','ResearchController@detailResearch')->name('detailResearch');
-
+Route::get('/profil','HomeController@profil')->name('profil');
 
 // ----------------------------------------------------------------------------------------------------
 Route::group(['middleware'=>'auth','prefix' => 'admin'],function(){
@@ -173,6 +173,12 @@ Route::group(['middleware'=>'auth','prefix' => 'admin'],function(){
         Route::get('/','Dashboard\PilarController@getPilar')->name('getPilar');
         Route::post('/','Dashboard\PilarController@postPilar')->name('postPilar');
         Route::get('/delete/{id}','Dashboard\PilarController@deletePilar')->name('deletePilar');
+    });
+
+    Route::group(['prefix' => 'profil-sdgs'],function(){
+        Route::get('/','Dashboard\TentangController@getProfil')->name('getProfil');
+        Route::post('/','Dashboard\TentangController@postProfil')->name('postProfil');
+        Route::get('/delete/{id}','Dashboard\TentangController@deleteProfil')->name('deleteProfil');
     });
 
     Route::patch('/password','Dashboard\UserController@updatePassword')->name('updatePassword');

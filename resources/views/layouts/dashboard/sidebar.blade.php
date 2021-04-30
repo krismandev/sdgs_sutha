@@ -34,6 +34,9 @@
                     <a href="{{route('getTentang')}}" aria-expanded="false" class="{{(request()->is('admin/tentang*'))?'active': ''}}"><i class="fa fa-dot-circle-o"></i> <span class="hide-menu">Tentang</span></a>
                 </li>
                 <li>
+                    <a href="{{route('getProfil')}}" aria-expanded="false" class="{{(request()->is('admin/profil-sdgs*'))?'active': ''}}"><i class="fa fa-dot-circle-o"></i> <span class="hide-menu">Profil Pusat Kajian SDGs</span></a>
+                </li>
+                <li>
                     <a href="{{route('getDokumen')}}" aria-expanded="false" class="{{(request()->is('admin/dokumen*'))?'active': ''}}"><i class="fa fa-file"></i> <span class="hide-menu">Dokumen</span></a>
                 </li>
                 <li>
