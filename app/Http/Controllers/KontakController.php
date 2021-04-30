@@ -22,11 +22,19 @@ class KontakController extends Controller
         ]);
 
         $to = "krismanpratama@gmail.com";
-        $headers = "From: ".$request->email."\r\n".
-        "CC: ".$request->email;
+
+        $message = $this->getMessage($request->nama,$request->subject,$request->email, $request->hp, $request->pesan);
+
+        $headers = "MIME-Version: 1.0" . "\r\n";
+        $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+        $headers .= "From: <".$request->email."> \r\n";
+        $headers .= "CC: ".$request->email. " \r\n";
+
+
+
         $pengirim	= 'Dari: '.$request->nama.' <'.$request->email.'>';
 
-        @mail($to,$request->subject,$request->pesan,$headers);
+        @mail($to,$request->subject,$message,$headers);
 
         if (@main) {
             dd("ok");
@@ -44,5 +52,35 @@ class KontakController extends Controller
 
 
         return back();
+    }
+
+    public function getMessage($nama,$subject,$email,$hp,$pesan)
+    {
+        $message = "
+         <html>
+            <head>
+                <title>".$subject."</title>
+            </head>
+            <body>
+                <h1>
+                    ".$subject."
+                </h1><br>
+                <h2>
+                    Nama : ".$nama."
+                </h2><br>
+                <h2>
+                    Email : ".$email."
+                </h2><br>
+                <h2>
+                    HP: ".$hp."
+                <h2><br>
+
+                <p>".$pesan."<p>
+            </body>
+
+         </html>
+        ";
+
+        return $message;
     }
 }
