@@ -22,10 +22,11 @@ class KontakController extends Controller
         ]);
 
         $to = "krismanpratama@gmail.com";
-        $headers = 'From: <a2262189@bangkit.academy>'."rn";
+        $headers = "From: ".$request->email."\r\n".
+        "CC: ".$request->email;
         $pengirim	= 'Dari: '.$request->nama.' <'.$request->email.'>';
 
-        @mail($to,$request->subject,$request->pesan,$pengirim);
+        @mail($to,$request->subject,$request->pesan,$headers);
 
         if (@main) {
             dd("ok");
