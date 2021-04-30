@@ -34,11 +34,6 @@ class KontakController extends Controller
 
         @mail($to,$request->subject,$message,$headers);
 
-        if (@main) {
-            dd("ok");
-        }else{
-            dd("ups");
-        }
 
         Inbox::create([
             'nama' => $request->nama,
