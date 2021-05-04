@@ -37,7 +37,7 @@ $banners = Banner::orderBy('created_at','desc')->get();
                 <div class="text">
                     <div class="theme-title-one">
                         <h2>Apa itu SDGs?</h2>
-                        <p>{!!Str::limit($tentang->tentang,600)!!}...</p> <a href="{{route('tentang')}}">Baca Selengkapnya</a>
+                        <p>{!!Str::limit($tentang->tentang,500)!!}...</p> <a href="{{route('tentang')}}">Baca Selengkapnya</a>
                     </div> <!-- /.theme-title-one -->
                 </div> <!-- /.text -->
             </div> <!-- /.col- -->
