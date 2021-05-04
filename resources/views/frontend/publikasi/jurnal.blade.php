@@ -25,7 +25,7 @@
                         <div class="col-md-4 col-12">
                             <div class="single-blog">
                                 <div class="image-box">
-                                    <img src="{{url('publikasi/'.$jurnal->gambar)}}" alt="" class="jurnal">
+                                    <img src="{{$jurnal->getImage()}}" alt="" class="jurnal">
                                     <div class="overlay"><a href="{{url('publikasi/'.$jurnal->file)}}" class="date"> <i class="fa fa-download"></i> </a></div>
                                 </div> <!-- /.image-box -->
                                 <div class="post-meta">

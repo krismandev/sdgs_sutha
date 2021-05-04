@@ -24,7 +24,7 @@ class PublikasiController extends Controller
         $request->validate([
             'judul' => 'required',
             'deskripsi' => 'required',
-            'file' => 'required|file|mimes:pdf'
+            'file' => 'file|mimes:pdf'
         ]);
 
         if ($request->has('gambar')) {
@@ -33,10 +33,6 @@ class PublikasiController extends Controller
             $tujuan_upload = 'dokumen';
             $gambar->move($tujuan_upload,$nama_gambar);
         }
-        // $file = $request->file('file');
-        // $nama_file = time()."_".$file->getClientOriginalName();
-        // $tujuan_upload = 'dokumen';
-        // $file->move($tujuan_upload,$nama_file);
 
         if ($request->has('file')) {
             $file = $request->file('file');
@@ -49,6 +45,9 @@ class PublikasiController extends Controller
             $imageName = Str::replaceArray($sebelum,$sesudah,$nama_file);
             $imagePdf = new \Spatie\PdfToImage\Pdf($tujuan_upload . '/' . $nama_file);
             $imagePdf->saveImage("publikasi/".$imageName);
+          }else {
+              $imageName = null;
+              $nama_file = null;
           }
 
         $jurnal = Jurnal::create([

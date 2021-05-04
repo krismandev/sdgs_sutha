@@ -29,7 +29,7 @@
                                 <td>{!!Str::limit($jurnal->deskripsi,150)!!}</td>
                                 <td>
                                     <a href="{{url('publikasi/'.$jurnal->gambar)}}">
-                                        <img src="{{url('publikasi/'.$jurnal->gambar)}}" alt="{{$jurnal->nama_jurnal}}" style="max-width: 150px;">
+                                        <img src="{{$jurnal->getImage()}}" alt="{{$jurnal->nama_jurnal}}" style="max-width: 150px;">
                                     </a>
                                 </td>
                                 <td>
