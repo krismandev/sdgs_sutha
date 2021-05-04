@@ -16,7 +16,7 @@ class HomeController extends Controller
     {
         $tujuans = Tujuan::orderBy('id','asc')->get();
         $tentang = Tentang::first();
-        $beritas = Berita::orderBy('created_at','desc')->paginate(6);
+        $beritas = Berita::orderBy('created_at','desc')->paginate(4);
         $pilars = Pilar::orderBy('created_at','asc')->get();
         return view('frontend.index',compact(['tentang','beritas','tujuans','pilars']));
     }
