@@ -32,7 +32,7 @@ $banners = Banner::orderBy('created_at','desc')->get();
 <div class="about-compnay section-spacing">
     <div class="container">
         <div class="row">
-            <div class="col-lg-6 col-12"><img src="{{url('images/'.$tentang->gambar)}}" alt="" style="width: 550px; height: 410px;"></div>
+            <div class="col-lg-6 col-12"><img src="{{url('images/'.$tentang->gambar)}}" alt="" style="width: 550px; height: 550px;"></div>
             <div class="col-lg-6 col-12">
                 <div class="text">
                     <div class="theme-title-one">
