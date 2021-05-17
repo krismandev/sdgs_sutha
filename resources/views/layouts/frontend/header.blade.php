@@ -46,6 +46,7 @@
                             </li>
                             <li><a href="#">Kegiatan</a>
                                 <ul class="dropdown">
+                                    <li><a href="{{route('galeri')}}">Galeri</a></li>
                                     <li><a href="{{route('webinar')}}">Webinar</a></li>
                                     <li><a href="{{route('seminar')}}">Seminar & Conference</a></li>
                                     <li><a href="{{route('pengabdian')}}">Pengabdian</a></li>
