@@ -12,8 +12,8 @@
 */
 
 Route::get('/', 'HomeController@index')->name('index');
-Route::get('/login','Dashboard\LoginController@login')->name('login');
-// Auth::routes();
+// Route::get('/login','Dashboard\LoginController@login')->name('login');
+Auth::routes();
 
 
 Route::group(['prefix' => 'data'],function(){
