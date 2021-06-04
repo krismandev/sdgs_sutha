@@ -36,7 +36,7 @@
                                     <a href="{{route('editBerita',$berita->id)}}">
                                         <button class="btn btn-primary">Edit</button>
                                     </a>
-                                    <button class="btn btn-danger hapus-berita" data-berita_id="{{$berita->id}}">Hapus</button>
+                                    <a href="#" class="btn btn-danger hapus-berita" data-berita_id="{{$berita->id}}">Hapus</a>
                                 </td>
                             </tr>
                             @endforeach
@@ -48,10 +48,11 @@
     </div>
 </div>
 @endsection
-@section('footer')
+@section('linkfooter')
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script>
+
 $(".hapus-berita").click(function (e) {
-    e.preventDefault();
     const berita_id = $(this).data('berita_id');
     swal({
         title: "Yakin?",
