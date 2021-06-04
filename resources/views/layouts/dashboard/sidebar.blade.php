@@ -54,6 +54,7 @@
                         <li> <a href="{{route('getSeminar')}}">Seminars & Conferences</a> </li>
                         <li> <a href="{{route('getPengabdian')}}">Pengabdian</a></li>
                         <li> <a href="{{route('getSurvey')}}">Survey</a> </li>
+                        <li> <a href="{{route('getGaleri')}}">Galeri</a> </li>
                     </ul>
                 </li>
 
