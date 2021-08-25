@@ -19,6 +19,7 @@
             <div class="col-lg-3">
                 <div class="row">
                     <div class="text-right">
+                        <button class="btn btn-default copy-link" style="margin-bottom: 5px;" data-link_gambar="{{url('galeri/'.$galeri->gambar)}}">Copy</button>
                         <a href="#">
                             <i class="icon-trash" data-galeri_id="{{$galeri->id}}" style="margin-right: 10%;" style="color: red;"></i>
                         </a>
@@ -66,6 +67,7 @@
 @section('linkfooter')
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script>
+
     $(".icon-trash").click(function (e) {
         const galeri_id = $(this).data("galeri_id");
 
@@ -81,6 +83,16 @@
                 window.location = "/admin/galeri/delete/"+galeri_id;
             }
         });
+    });
+
+    $(".copy-link").click(function (e) {
+        let copyText = $(this).data("link_gambar");
+        // alert(copyText);
+        // copyText.select();
+        navigator.clipboard.writeText(copyText);
+        // document.execCommand("copy");
+
+        alert("Link gambar telah disalin");
     });
 </script>
 @endsection
