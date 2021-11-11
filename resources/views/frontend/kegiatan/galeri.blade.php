@@ -14,7 +14,7 @@
                             <div class="single-blog">
                                 <div class="image-box">
                                     <a href="{{url('galeri/'.$galeri->gambar)}}" data-fancybox="gallery">
-                                        <img src="{{url('galeri/'.$galeri->gambar)}}" alt="" class="galeri">
+                                        <img src="{{url('galeri/'.$galeri->gambar)}}" alt="" class="galeri" style="width: 300px; height: 180px; object-fit: cover; object-position: center;">
                                     </a>
                                 </div> <!-- /.image-box -->
                             </div> <!-- /.single-blog -->
