@@ -1,4 +1,8 @@
 @extends('layouts.dashboard.master')
+@section('header')
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css">
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/dt-1.10.20/datatables.min.css"/>
+@endsection
 @section('title')
     Halaman Berita
 @endsection
@@ -11,7 +15,7 @@
                 <a href="{{route('createBerita')}}"><button class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Buat berita baru</button></a>
             </div>
             <div class="table-responsive">
-                <table class="table table-striped">
+                <table class="table table-striped" id="data_beritas_reguler">
                     <thead>
                         <tr>
                             <th>Judul</th>
@@ -67,5 +71,7 @@ $(".hapus-berita").click(function (e) {
         }
     });
 });
+
+$('#data_beritas_reguler').DataTable();
 </script>
 @endsection
