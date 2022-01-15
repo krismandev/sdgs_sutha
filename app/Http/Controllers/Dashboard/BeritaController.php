@@ -14,7 +14,7 @@ class BeritaController extends Controller
 
     public function getBerita()
     {
-        $beritas = Berita::orderBy('created_at','desc')->paginate(10);
+        $beritas = Berita::orderBy('created_at','desc')->get();
         return view('dashboard.berita.getBerita',compact(['beritas']));
     }
 
