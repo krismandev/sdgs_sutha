@@ -22,7 +22,7 @@
                         @foreach ($beritas as $berita)
                         <div class="single-blog">
                             <div class="image-box">
-                                <img src="{{url('images/'.$berita->gambar)}}" alt="" class="blog-image">
+                                <img src="{{url('images/'.$berita->gambar)}}" alt="" class="blog-image" style="object-fit: cover; object-position: center;">
                                 <div class="overlay"><a href="#" class="date">{{date('d M Y',strtotime($berita->created_at))}}</a></div>
                             </div> <!-- /.image-box -->
                             <div class="post-meta">

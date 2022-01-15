@@ -47,6 +47,6 @@
     </div>
 </div>
 @endsection
-@section('footer')
+@section('linkfooter')
 <script src="{{asset('ckeditor/ckeditor.js')}}"></script>
 @endsection
