@@ -106,7 +106,7 @@ $banners = Banner::orderBy('created_at','desc')->get();
         </div>  --}}
         <div class="wrapper">
             <div class="clearfix">
-                <iframe src="http://alfidashboard.000webhostapp.com/" frameborder="0" width="100%" height="500px"></iframe>
+                <iframe src="https://alfidashboard.000webhostapp.com/" frameborder="0" width="100%" height="500px"></iframe>
             </div> <!-- /.row -->
         </div> <!-- /.wrapper -->
     </div> <!-- /.container -->
