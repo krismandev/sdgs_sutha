@@ -99,6 +99,19 @@ $banners = Banner::orderBy('created_at','desc')->get();
     </div> <!-- /.container -->
 </div> <!-- /.our-blog -->
 
+<div class="our-blog latest-news section-spacing">
+    <div class="container">
+        {{-- <div class="theme-title-one">
+            <h2>Berita Terbaru</h2>
+        </div>  --}}
+        <div class="wrapper">
+            <div class="clearfix">
+                <iframe src="http://alfidashboard.000webhostapp.com/" frameborder="0" width="100%" height="500px"></iframe>
+            </div> <!-- /.row -->
+        </div> <!-- /.wrapper -->
+    </div> <!-- /.container -->
+</div> <!-- /.our-blog -->
+
 <div class=" section-spacing">
     <div class="overlay">
         <div class="container">
