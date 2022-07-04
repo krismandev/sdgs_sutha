@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Donatur;
+use App\Fund;
 
 class DonaturController extends Controller
 {
@@ -73,6 +74,7 @@ class DonaturController extends Controller
         $donatur->update([
             'payment_type' => $json->payment_type,
             'status' => $json->transaction_status,
+            'transaction_id' => $json->transaction_id,
         ]);
         return redirect()->route('index');
     }
@@ -83,13 +85,14 @@ class DonaturController extends Controller
         $notif = new \Midtrans\Notification();
 
         $transaction = $notif->transaction_status;
+        $gross_amount = $notif->gross_amount;
         $type = $notif->payment_type;
         $order_id = $notif->order_id;
         $fraud = $notif->fraud_status;
         $fund_id = explode('-',$order_id)[0];
 
         $donatur = Donatur::where('order_id',$order_id);
-        $fund = Fund::where('id',$fund_id);
+        $fund = Fund::where('id',$fund_id)->first();
         
         
         if ($transaction == 'capture') {
@@ -109,6 +112,9 @@ class DonaturController extends Controller
                         'payment_type' => $type,
                         'status' => 'Success',
                     ]);
+                    $fund->update([
+                        'dana_masuk' => $fund->dana_masuk + $gross_amount,
+                    ]);
                     echo "Transaction order_id: " . $order_id ." successfully captured using " . $type;
                 }
             }
@@ -118,6 +124,10 @@ class DonaturController extends Controller
                 'payment_type' => $type,
                 'status' => $transaction,
             ]);
+            $fund->update([
+                'dana_masuk' => $fund->dana_masuk + $gross_amount,
+            ]);
+            
 
             echo "Transaction order_id: " . $order_id ." successfully transfered using " . $type;
         } else if ($transaction == 'pending') {

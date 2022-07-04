@@ -18,8 +18,10 @@ class CreateDonatursTable extends Migration
             $table->integer('fund_id');
             $table->text('nama');
             $table->text('email');
+            $table->text('no_hp');
             $table->integer('jumlah');
             $table->text('order_id')->nullable();
+            $table->text('transaction_id')->nullable();
             $table->text('payment_type')->nullable();
             $table->text('status')->nullable();
             $table->timestamps();

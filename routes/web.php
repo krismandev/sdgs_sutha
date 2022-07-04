@@ -49,6 +49,7 @@ Route::group(['prefix' => 'fund'],function(){
     Route::post('donatur/create','DonaturController@createDonatur')->name('createDonatur');
     Route::get('donatur/konfirmasi/{order_id}/{data}','DonaturController@konfirmasiDonatur')->name('konfirmasiDonatur');
     Route::post('donatur/update','DonaturController@updateDonatur')->name('updateDonatur');
+    Route::post('donatur/notif','DonaturController@notifHandler')->name('notifHandler');
 });
 
 // ----------------------------------------------------------------------------------------------------
