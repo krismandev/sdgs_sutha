@@ -15,6 +15,13 @@ class CreateFundsTable extends Migration
     {
         Schema::create('funds', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string("gambar");
+            $table->string("tujuan");
+            $table->string("deskripsi");
+            $table->string("lokasi");
+            $table->date("deadline");
+            $table->integer("dana_masuk");
+            $table->integer("target");
             $table->timestamps();
         });
     }
