@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Donatur;
 
-class DonaturConntroller extends Controller
+class DonaturController extends Controller
 {
     public function konfirmasiDonatur($order_id,$data)
     {
@@ -53,6 +54,7 @@ class DonaturConntroller extends Controller
         Donatur::create([
             'nama' => $request->nama,
             'email' => $request->email,
+            'no_hp' => $request->no_hp,
             'jumlah' => $request->jumlah,
             'fund_id' => $request->fund_id,
             'order_id' => $order_id,
