@@ -43,6 +43,11 @@ Route::get('/our-research','ResearchController@research')->name('research');
 Route::get('/our-research/{id}','ResearchController@detailResearch')->name('detailResearch');
 Route::get('/profil','HomeController@profil')->name('profil');
 
+Route::group(['prefix' => 'fund'],function(){
+    Route::get('detail','FundController@detailFund')->name('detailFund');
+    Route::get('form','FundController@formFund')->name('formFund');
+
+});
 // ----------------------------------------------------------------------------------------------------
 Route::group(['middleware'=>'auth','prefix' => 'admin'],function(){
     Route::get('/','Dashboard\HomeController@index')->name('dashboard');
