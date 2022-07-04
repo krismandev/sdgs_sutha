@@ -26,6 +26,9 @@ class CreateDonatursTable extends Migration
             $table->text('status')->nullable();
             $table->timestamps();
         });
+        Schema::table('donaturs', function (Blueprint $table) {
+            $table->foreign('fund_id')->references('id')->on('funds')->onDelete('cascade')->onUpdate('cascade');
+        });
     }
 
     /**

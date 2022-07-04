@@ -41,8 +41,12 @@
         </div>
         <div class="card mb-20">
             <h2>donasi</h2>
-                <div class="box-donatur"><div class="donatur text-sky-700 font-medium">alfi</div> <div>berdonasi sebesar 1000</div></div>  
+            @if($donaturs->count() != null)
+                @foreach ($donaturs as $donatur)
+                    <div class="box-donatur"><div class="donatur text-sky-700 font-medium">{{$donatur->nama}}</div> <div>berdonasi sebesar {{"Rp " . number_format($donatur->jumlah,2,',','.') }}</div></div>  
+                @endforeach
                 <div class="w-24 mt-2 mx-auto"><a href="daftar-donasi.php?id-fund=1">Lihat Semua</a></div>
+                @endif
             </div>
         </div>
     </div>
