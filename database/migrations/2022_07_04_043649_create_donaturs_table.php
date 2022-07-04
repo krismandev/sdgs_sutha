@@ -15,7 +15,7 @@ class CreateDonatursTable extends Migration
     {
         Schema::create('donaturs', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('fund_id');
+            $table->bigInteger('fund_id')->unsigned();
             $table->text('nama');
             $table->text('email');
             $table->text('no_hp');
