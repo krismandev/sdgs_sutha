@@ -223,6 +223,28 @@ $mitras = Mitra::inRandomOrder()->get();
 		{{-- <script src="{{asset('frontend/vendor/fancybox/dist/jquery.fancybox.min.js')}}"></script> --}}
         <script src="{{asset('frontend/js/jquery.fancybox.min.js')}}"></script>
 		<script src="{{asset('frontend/js/theme.js')}}"></script>
+		<script>
+			$('#funding-carousel').owlCarousel({
+				loop:true,
+				margin:20,
+				nav:true,
+				autoplay:true,
+				autoplayTimeout:7000,
+				slideTransition: 'linear',
+				autoplaySpeed: 2000,
+				responsive:{
+					0:{
+						items:1
+					},
+					575:{
+						items:2
+					},
+					1000:{
+						items:3
+					}
+				}
+			})
+		</script>
         @yield('linkfooter')
 		</div>
 	</body>
