@@ -42,8 +42,8 @@
         <div class="card mb-20">
             <h2>donasi</h2>
                 <div class="box-donatur"><div class="donatur text-sky-700 font-medium">alfi</div> <div>berdonasi sebesar 1000</div></div>  
+                <div class="w-24 mt-2 mx-auto"><a href="daftar-donasi.php?id-fund=1">Lihat Semua</a></div>
             </div>
-            <div class="w-24 mt-2 mx-auto"><a href="daftar-donasi.php?id-fund=1">Lihat Semua</a></div>
         </div>
     </div>
 @endsection
