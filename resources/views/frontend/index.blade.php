@@ -144,7 +144,7 @@ $banners = Banner::orderBy('created_at','desc')->get();
                         <div class="post-meta" style="padding-top: 5px;">
                             <h5 class="title"><a href="/fund/detail/{{$fund->id}}">{{$fund->tujuan}}</a></h5>
                             <div class="progress" style="line-height: 28px; margin-top: 20px;">
-                                <div class="progress-bar" role="progressbar" style="width: 50%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">50%</div>
+                                <div class="progress-bar" role="progressbar" style="width: <?= explode('.',$fund->dana_masuk/$fund->target*100,2)[0]."%" ?>;"  aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"><?= explode('.',$fund->dana_masuk/$fund->target*100,2)[0]."%" ?></div>
                             </div>
                             <div class="total" style="margin-bottom: 30px;">Rp. {{$fund->dana_masuk}}/Rp. {{$fund->target}}</div>
                             <a href="/fund/detail/{{$fund->id}}" class="read-more"><button type="button" class="btn btn-primary">DONASI</button></a>
