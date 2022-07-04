@@ -44,10 +44,13 @@ Route::get('/our-research/{id}','ResearchController@detailResearch')->name('deta
 Route::get('/profil','HomeController@profil')->name('profil');
 
 Route::group(['prefix' => 'fund'],function(){
-    Route::get('detail','FundController@detailFund')->name('detailFund');
-    Route::get('form','FundController@formFund')->name('formFund');
-
+    Route::get('detail/{id}','FundController@detailFund')->name('detailFund');
+    Route::get('form/{id}','FundController@formFund')->name('formFund');
+    Route::post('donatur/create','DonaturController@createDonatur')->name('createDonatur');
+    Route::get('donatur/konfirmasi/{order_id}/{data}','DonaturController@konfirmasiDonatur')->name('konfirmasiDonatur');
+    Route::post('donatur/update','DonaturController@updateDonatur')->name('updateDonatur');
 });
+
 // ----------------------------------------------------------------------------------------------------
 Route::group(['middleware'=>'auth','prefix' => 'admin'],function(){
     Route::get('/','Dashboard\HomeController@index')->name('dashboard');
