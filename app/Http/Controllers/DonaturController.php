@@ -8,39 +8,10 @@ use App\Fund;
 
 class DonaturController extends Controller
 {
-    public function konfirmasiDonatur($order_id,$data)
+    public function listDonatur($id)
     {
-        // Set your Merchant Server Key
-        \Midtrans\Config::$serverKey = 'SB-Mid-server-VvZd2mMFrXgGQUULjnRQFr7k';
-        // Set to Development/Sandbox Environment (default). Set to true for Production Environment (accept real transaction).
-        \Midtrans\Config::$isProduction = false;
-        // Set sanitization on (default)
-        \Midtrans\Config::$isSanitized = true;
-        // Set 3DS transaction for credit card to true
-        \Midtrans\Config::$is3ds = true;
-
-        $data = explode('.',$data);
-        $jumlah = base64_decode($data[0]);
-        $nama = base64_decode($data[1]);
-        $email = base64_decode($data[2]);
-        $no_hp = base64_decode($data[3]);
-        $fund_id = explode('-',$order_id)[0];
-
-        $params = array(
-            'transaction_details' => array(
-                'order_id' => $order_id,
-                'gross_amount' => $jumlah,
-            ),
-            'customer_details' => array(
-                'first_name' => $nama,
-                'last_name' => " ",
-                'email' => $email,
-                'phone' => $no_hp,
-            ),
-        );
-            
-        $snapToken = \Midtrans\Snap::getSnapToken($params);
-        return view('frontend.fund.donatur.konfirmasidonatur',compact(['snapToken','nama','email','fund_id']));
+        $donaturs = Donatur::where('fund_id',$id)->where('status','settlement')->orderBy('created_at','desc')->paginate(10);
+        return view('frontend.fund.donatur.listdonatur',compact(['id','donaturs']));
     }
     public function createDonatur(Request $request)
     {
@@ -77,6 +48,40 @@ class DonaturController extends Controller
             'transaction_id' => $json->transaction_id,
         ]);
         return redirect()->route('index');
+    }
+    public function konfirmasiDonatur($order_id,$data)
+    {
+        // Set your Merchant Server Key
+        \Midtrans\Config::$serverKey = 'SB-Mid-server-VvZd2mMFrXgGQUULjnRQFr7k';
+        // Set to Development/Sandbox Environment (default). Set to true for Production Environment (accept real transaction).
+        \Midtrans\Config::$isProduction = false;
+        // Set sanitization on (default)
+        \Midtrans\Config::$isSanitized = true;
+        // Set 3DS transaction for credit card to true
+        \Midtrans\Config::$is3ds = true;
+
+        $data = explode('.',$data);
+        $jumlah = base64_decode($data[0]);
+        $nama = base64_decode($data[1]);
+        $email = base64_decode($data[2]);
+        $no_hp = base64_decode($data[3]);
+        $fund_id = explode('-',$order_id)[0];
+
+        $params = array(
+            'transaction_details' => array(
+                'order_id' => $order_id,
+                'gross_amount' => $jumlah,
+            ),
+            'customer_details' => array(
+                'first_name' => $nama,
+                'last_name' => " ",
+                'email' => $email,
+                'phone' => $no_hp,
+            ),
+        );
+            
+        $snapToken = \Midtrans\Snap::getSnapToken($params);
+        return view('frontend.fund.donatur.konfirmasidonatur',compact(['snapToken','nama','email','fund_id']));
     }
     public function notifHandler()
     {
