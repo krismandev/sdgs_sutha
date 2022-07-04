@@ -7,6 +7,7 @@ use App\Berita;
 use App\Tujuan;
 use App\Profil;
 use App\Pilar;
+use App\Fund;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -18,7 +19,8 @@ class HomeController extends Controller
         $tentang = Tentang::first();
         $beritas = Berita::orderBy('created_at','desc')->paginate(4);
         $pilars = Pilar::orderBy('created_at','asc')->get();
-        return view('frontend.index',compact(['tentang','beritas','tujuans','pilars']));
+        $funds = Fund::orderBy('created_at','desc')->paginate(4);
+        return view('frontend.index',compact(['tentang','beritas','tujuans','pilars','funds']));
     }
 
     public function tentang()
