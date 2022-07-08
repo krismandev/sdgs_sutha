@@ -132,8 +132,6 @@ class DonaturController extends Controller
             $fund->update([
                 'dana_masuk' => $fund->dana_masuk + $gross_amount,
             ]);
-            
-
             echo "Transaction order_id: " . $order_id ." successfully transfered using " . $type;
         } else if ($transaction == 'pending') {
             // TODO set payment status in merchant's database to 'Pending'
@@ -161,6 +159,15 @@ class DonaturController extends Controller
             $donatur->update([
                 'payment_type' => $type,
                 'status' => $transaction,
+            ]);
+            echo "Payment using " . $type . " for transaction order_id: " . $order_id . " is canceled.";
+        } else if ($transaction == 'refund') {
+            // TODO set payment status in merchant's database to 'Denied'
+            $donatur->update([
+                'payment_type' => $type,
+                'status' => $transaction,
+            ]);$fund->update([
+                'dana_masuk' => $fund->dana_masuk - $gross_amount,
             ]);
             echo "Payment using " . $type . " for transaction order_id: " . $order_id . " is canceled.";
         }

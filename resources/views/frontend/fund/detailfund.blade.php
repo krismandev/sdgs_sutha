@@ -22,16 +22,14 @@
                 <a class="" href="{{route('formFund',['id'=>$id])}}">
                     <button class="tombol">donasi</button>
                 </a>
-                <div class="text-md font-medium capitalize">{{$deadline}} <span class="text-slate-500 text-xs">hari lagi</span></div>
+                <div class="text-md font-medium capitalize"> <?= $deadline->y != 0 ? $deadline->y." <span class=\"text-slate-500 text-xs\">tahun</span>" : " " ?> <?= $deadline->m != 0 ? $deadline->m." <span class=\"text-slate-500 text-xs\">Bulan</span>" : " " ?> {{$deadline->d}} <span class="text-slate-500 text-xs">Hari lagi</span></div>
             </div>
             
         </div>
         <div class="card">
             <h2>deskripsi donasi</h2>
-            <div class="text-md font-medium first-letter:capitalize indent-8">
-                <p class="mt-4 font-normal indent-8">
-                {{$fund->deskripsi}}
-                </p>
+            <div class="text-md  first-letter:capitalize mt-4 font-normal indent-8">
+                <?=$fund->deskripsi ?>
             </div>
             <div class="text-md font-medium capitalize flex justify-between mt-4"><abbr class="text-xl mr-10" title="Tengat Waktu"><i class="fa-solid fa-calendar"></i></abbr> <?= date("d-m-Y", strtotime($fund->deadline))  ?></div>
             <div class="garis"></div>

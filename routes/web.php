@@ -179,6 +179,15 @@ Route::group(['middleware'=>'auth','prefix' => 'admin'],function(){
         Route::patch('/','Dashboard\ResearchController@updateResearch')->name('updateResearch');
 
     });
+    Route::group(['prefix' => 'fund'],function(){
+        Route::get('/','Dashboard\FundController@getFund')->name('getFund');
+        Route::get('/baru','Dashboard\FundController@createFund')->name('createFund');
+        Route::post('/','Dashboard\FundController@postFund')->name('postFund');
+        Route::get('/{id}','Dashboard\FundController@editFund')->name('editFund');
+        Route::get('/donatur/{id}','Dashboard\FundController@listDonatur')->name('listDonatur');
+        Route::patch('/','Dashboard\FundController@updateFund')->name('updateFund');
+        Route::get('/delete/{id}','Dashboard\FundController@deleteFund')->name('deleteFund');
+    });
 
     Route::group(['prefix' => 'pilar-sdgs'],function(){
         Route::get('/','Dashboard\PilarController@getPilar')->name('getPilar');
