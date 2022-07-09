@@ -19,6 +19,8 @@ class VerifyCsrfToken extends Middleware
      * @var array
      */
     protected $except = [
-        //
+        'fund/donatur/update',
+        'fund/donatur/create',
+        'fund/donatur/notif',
     ];
 }

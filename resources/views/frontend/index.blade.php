@@ -127,17 +127,35 @@ $banners = Banner::orderBy('created_at','desc')->get();
     </div> <!-- /.overlay -->
 </div> <!-- /.testimonial-section -->
 
-<div class="our-blog latest-news section-spacing">
+<div class="latest-news section-spacing">
     <div class="container">
-        {{-- <div class="theme-title-one">
-            <h2>Berita Terbaru</h2>
-        </div>  --}}
+        <div class="theme-title-one">
+            <h2>Sgdg Fund</h2>
+        </div>
+        @if($funds->count() != null)
         <div class="wrapper">
-            <div class="clearfix">
-                <iframe src="https://alfidashboard.000webhostapp.com/" frameborder="0" width="100%" height="500px"></iframe>
-            </div> <!-- /.row -->
-        </div> <!-- /.wrapper -->
-    </div> <!-- /.container -->
-</div> <!-- /.our-blog -->
+            <div id="funding-carousel" class="owl-carousel owl-theme">
+                @foreach ($funds as $fund)
+                <div class="item" >
+                    <div class="single-blog">
+                        <div class="image-box" >
+                            <img src="{{url('fund/img/'.$fund->gambar)}}" alt="" style="max-height: 278px; border-radius: 5px;">
+                        </div>
+                        <div class="post-meta" style="padding-top: 5px;">
+                            <h5 class="title"><a href="/fund/detail/{{$fund->id}}">{{$fund->tujuan}}</a></h5>
+                            <div class="progress" style="line-height: 28px; margin-top: 20px;">
+                                <div class="progress-bar"  role="progressbar" style="width: <?= explode('.',$fund->dana_masuk/$fund->target*100,2)[0]."%" ?>;background-color: #000f32;"  aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"><?= explode('.',$fund->dana_masuk/$fund->target*100,2)[0]."%" ?></div>
+                            </div>
+                            <div class="total" style="margin-bottom: 30px;">Rp. {{$fund->dana_masuk}}/Rp. {{$fund->target}}</div>
+                            <a href="/fund/detail/{{$fund->id}}" class="read-more"><button type="button" style="background-color: #000f32;" class="btn btn-primary">DONASI</button></a>
+                        </div>
+                    </div> 
+                </div>
+                @endforeach
+            </div>
+        </div>
+        @endif
+    </div>
+</div> 
 
 @endsection

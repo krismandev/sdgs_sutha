@@ -43,6 +43,16 @@ Route::get('/our-research','ResearchController@research')->name('research');
 Route::get('/our-research/{id}','ResearchController@detailResearch')->name('detailResearch');
 Route::get('/profil','HomeController@profil')->name('profil');
 
+Route::group(['prefix' => 'fund'],function(){
+    Route::get('detail/{id}','FundController@detailFund')->name('detailFund');
+    Route::get('form/{id}','FundController@formFund')->name('formFund');
+    Route::post('donatur/create','DonaturController@createDonatur')->name('createDonatur');
+    Route::get('donatur/konfirmasi/{order_id}/{data}','DonaturController@konfirmasiDonatur')->name('konfirmasiDonatur');
+    Route::get('donatur/list/{id}','DonaturController@listDonatur')->name('listDonatur');
+    Route::post('donatur/update','DonaturController@updateDonatur')->name('updateDonatur');
+    Route::post('donatur/notif','DonaturController@notifHandler')->name('notifHandler');
+});
+
 // ----------------------------------------------------------------------------------------------------
 Route::group(['middleware'=>'auth','prefix' => 'admin'],function(){
     Route::get('/','Dashboard\HomeController@index')->name('dashboard');
@@ -168,6 +178,15 @@ Route::group(['middleware'=>'auth','prefix' => 'admin'],function(){
         Route::get('/delete/{id}','Dashboard\ResearchController@deleteResearch')->name('deleteResearch');
         Route::patch('/','Dashboard\ResearchController@updateResearch')->name('updateResearch');
 
+    });
+    Route::group(['prefix' => 'fund'],function(){
+        Route::get('/','Dashboard\FundController@getFund')->name('getFund');
+        Route::get('/baru','Dashboard\FundController@createFund')->name('createFund');
+        Route::post('/','Dashboard\FundController@postFund')->name('postFund');
+        Route::get('/{id}','Dashboard\FundController@editFund')->name('editFund');
+        Route::get('/donatur/{id}','Dashboard\FundController@listDonatur')->name('listDonatur');
+        Route::patch('/','Dashboard\FundController@updateFund')->name('updateFund');
+        Route::get('/delete/{id}','Dashboard\FundController@deleteFund')->name('deleteFund');
     });
 
     Route::group(['prefix' => 'pilar-sdgs'],function(){
