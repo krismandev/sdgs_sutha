@@ -234,7 +234,8 @@ $mitras = Mitra::inRandomOrder()->get();
 				autoplaySpeed: 2000,
 				responsive:{
 					0:{
-						items:1
+						items:1,
+						loop:false
 					},
 					575:{
 						items:2
