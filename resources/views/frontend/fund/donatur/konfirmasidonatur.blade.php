@@ -7,7 +7,7 @@
         <input type="hidden" name="json" id="json">
         <input type="submit" style="display : none;" id="submit" value="inset">
     </form>
-    <script src="https://app.sandbox.midtrans.com/snap/snap.js" data-client-key="SB-Mid-client-zKBn6ycyWj_IWPl8"></script>
+    <script src="https://app.sandbox.midtrans.com/snap/snap.js" data-client-key="{{env('MIDTRANS_CLIENT_KEY')}}"></script>
     <script type="text/javascript">
       snap.pay('{{$snapToken}}', {
         // Optional
