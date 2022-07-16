@@ -65,7 +65,7 @@ class DonaturController extends Controller
             "expiry"=> array(
                 "start_time"=> date("Y-m-d H:i:s p",time()),
                 "unit"=> "minutes",
-                "duration"=> 1,
+                "duration"=> 60,
             ),
             // 'enabled_payments'=> array("credit_card", "cimb_clicks","bca_klikbca", "bca_klikpay", "bri_epay", "echannel", "permata_va","bca_va", "bni_va", "bri_va", "other_va", "gopay", "indomaret","danamon_online", "akulaku", "shopeepay", "kredivo", "uob_ezpay"),
         );
