@@ -1,29 +1,27 @@
 @extends('layouts.dashboard.master')
 @section('header')
-<link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css">
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/dt-1.10.20/datatables.min.css"/>
 <style>
     .status{
         padding: 5px;
         text-align: center;
-        text-transform: capitalize;
     }
-    .pending{
+    .Pending{
         background-color: rgba(255, 255, 0, 30%);
         color: darkorange;
         border: 1px solid darkorange;
     }
-    .deny ,.cancel ,.expire{
+    .Denied ,.Expire{
         background-color: rgba(255, 0, 0, 30%);
         color: red;
         border: 1px solid red;
     }
-    .settlement ,.capture{
+    .Settlement ,.Success{
         background-color: rgba(0, 255, 0, 30%);
         color: green;
         border: 1px solid green;
     }
-    .refund ,.partial_refund{
+    .Refund ,.partial_refund{
         background-color: rgba(0, 0, 0, 30%);
         color: blue;
         border: 1px solid blue;
@@ -69,6 +67,7 @@
                         @endif
                     </tbody>
                 </table>
+                {{ $donaturs->links() }}
             </div>
         </div>
     </div>
@@ -76,7 +75,4 @@
 @endsection
 @section('linkfooter')
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-<script>
-$('#data_funds_reguler').DataTable();
-</script>
 @endsection

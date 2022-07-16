@@ -3,8 +3,7 @@
     Konfirmasi donasi
 @endsection
 @section('content')
-    <form action="{{route('updateDonatur')}}" method="post">
-        <input type="hidden" name="json" id="json">
+    <form action="{{route('index')}}" method="get">
         <input type="submit" style="display : none;" id="submit" value="inset">
     </form>
     <script src="https://app.sandbox.midtrans.com/snap/snap.js" data-client-key="{{env('MIDTRANS_CLIENT_KEY')}}"></script>
@@ -24,7 +23,6 @@
         }
     });
     function insert(data){
-        document.getElementById("json").value = JSON.stringify(data, null, 2);
         document.getElementById("submit").click();
     }
     </script>
