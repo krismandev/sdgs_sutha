@@ -6,7 +6,7 @@
     <form action="{{route('index')}}" method="get">
         <input type="submit" style="display : none;" id="submit" value="inset">
     </form>
-    <script src="https://app.sandbox.midtrans.com/snap/snap.js" data-client-key="{{env('MIDTRANS_CLIENT_KEY')}}"></script>
+    <script src="{{env('MIDTRANS_JS_URL')}}" data-client-key="{{env('MIDTRANS_CLIENT_KEY')}}"></script>
     <script type="text/javascript">
       snap.pay('{{$snapToken}}', {
         // Optional
