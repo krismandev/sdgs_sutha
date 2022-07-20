@@ -22,7 +22,7 @@ class FundController extends Controller
     }
     public function listDonatur($fund_id)
     {
-        $donaturs = Donatur::where('fund_id',$fund_id)->orderBy('created_at','desc')->get();
+        $donaturs = Donatur::where('fund_id',$fund_id)->orderBy('created_at','desc')->paginate(10);
         return view('dashboard.fund.getDonatur',compact(['donaturs','fund_id']));
     }
 

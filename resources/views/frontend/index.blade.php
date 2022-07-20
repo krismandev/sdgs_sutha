@@ -139,7 +139,7 @@ $banners = Banner::orderBy('created_at','desc')->get();
                 <div class="item" >
                     <div class="single-blog">
                         <div class="image-box" >
-                            <img src="{{url('fund/img/'.$fund->gambar)}}" alt="" style="max-height: 278px; border-radius: 5px;">
+                            <img src="{{url('fund/img/'.$fund->gambar)}}" alt="" style="width: 100%; border-radius: 5px;">
                         </div>
                         <div class="post-meta" style="padding-top: 5px;">
                             <h5 class="title"><a href="/fund/detail/{{$fund->id}}">{{$fund->tujuan}}</a></h5>

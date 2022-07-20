@@ -33,32 +33,16 @@ class DonaturController extends Controller
         ]);
         return redirect()->route('konfirmasiDonatur', ['order_id'=> $order_id,'data' => base64_encode($request->jumlah).'.'.base64_encode($request->nama).'.'.base64_encode($request->email).'.'.base64_encode($request->no_hp)]);
     }
-    public function updateDonatur(Request $request)
-    {
-        $request->validate([
-            'json' => 'required',
-        ]);
-        $json = json_decode($request->json);
-
-        $donatur = Donatur::where('order_id',$json->order_id);
-
-        $donatur->update([
-            'payment_type' => $json->payment_type,
-            'status' => $json->transaction_status,
-            'transaction_id' => $json->transaction_id,
-        ]);
-        return redirect()->route('index');
-    }
     public function konfirmasiDonatur($order_id,$data)
     {
         // Set your Merchant Server Key
-        \Midtrans\Config::$serverKey = 'SB-Mid-server-VvZd2mMFrXgGQUULjnRQFr7k';
+        \Midtrans\Config::$serverKey = env('MIDTRANS_SERVER_KEY');
         // Set to Development/Sandbox Environment (default). Set to true for Production Environment (accept real transaction).
-        \Midtrans\Config::$isProduction = false;
+        \Midtrans\Config::$isProduction = env('MIDTRANS_IS_PRODUCTION');
         // Set sanitization on (default)
-        \Midtrans\Config::$isSanitized = true;
+        \Midtrans\Config::$isSanitized = env('MIDTRANS_IS_SANITIZED');
         // Set 3DS transaction for credit card to true
-        \Midtrans\Config::$is3ds = true;
+        \Midtrans\Config::$is3ds = env('MIDTRANS_IS_3DS');
 
         $data = explode('.',$data);
         $jumlah = base64_decode($data[0]);
@@ -78,6 +62,12 @@ class DonaturController extends Controller
                 'email' => $email,
                 'phone' => $no_hp,
             ),
+            "expiry"=> array(
+                "start_time"=> date("Y-m-d H:i:s p",time()),
+                "unit"=> "minutes",
+                "duration"=> 60,
+            ),
+            // 'enabled_payments'=> array("credit_card", "cimb_clicks","bca_klikbca", "bca_klikpay", "bri_epay", "echannel", "permata_va","bca_va", "bni_va", "bri_va", "other_va", "gopay", "indomaret","danamon_online", "akulaku", "shopeepay", "kredivo", "uob_ezpay"),
         );
             
         $snapToken = \Midtrans\Snap::getSnapToken($params);
@@ -85,8 +75,8 @@ class DonaturController extends Controller
     }
     public function notifHandler()
     {
-        \Midtrans\Config::$isProduction = false;
-        \Midtrans\Config::$serverKey = 'SB-Mid-server-VvZd2mMFrXgGQUULjnRQFr7k';
+        \Midtrans\Config::$isProduction = env('MIDTRANS_IS_PRODUCTION');;
+        \Midtrans\Config::$serverKey = env('MIDTRANS_SERVER_KEY');
         $notif = new \Midtrans\Notification();
 
         $transaction = $notif->transaction_status;
@@ -96,7 +86,7 @@ class DonaturController extends Controller
         $fraud = $notif->fraud_status;
         $fund_id = explode('-',$order_id)[0];
 
-        $donatur = Donatur::where('order_id',$order_id);
+        $donatur = Donatur::where('order_id',$order_id)->first();
         $fund = Fund::where('id',$fund_id)->first();
         
         
@@ -127,7 +117,7 @@ class DonaturController extends Controller
             // TODO set payment status in merchant's database to 'Settlement'
             $donatur->update([
                 'payment_type' => $type,
-                'status' => $transaction,
+                'status' => 'Settlement',
             ]);
             $fund->update([
                 'dana_masuk' => $fund->dana_masuk + $gross_amount,
@@ -137,35 +127,35 @@ class DonaturController extends Controller
             // TODO set payment status in merchant's database to 'Pending'
             $donatur->update([
                 'payment_type' => $type,
-                'status' => $transaction,
+                'status' => 'Pending',
             ]);
             echo "Waiting customer to finish transaction order_id: " . $order_id . " using " . $type;
         } else if ($transaction == 'deny') {
             // TODO set payment status in merchant's database to 'Denied'
             $donatur->update([
                 'payment_type' => $type,
-                'status' => $transaction,
+                'status' => 'Denied',
             ]);
-            echo "Payment using " . $type . " for transaction order_id: " . $order_id . " is denied.";
+            echo "Payment using " . $type . " for transaction order_id: " . $order_id . " is denied. t";
         } else if ($transaction == 'expire') {
-            // TODO set payment status in merchant's database to 'expire'
+            // TODO set payment status in merchant's database to 'Expire'
             $donatur->update([
                 'payment_type' => $type,
-                'status' => $transaction,
+                'status' => 'Expire',
             ]);
             echo "Payment using " . $type . " for transaction order_id: " . $order_id . " is expired.";
         } else if ($transaction == 'cancel') {
             // TODO set payment status in merchant's database to 'Denied'
             $donatur->update([
                 'payment_type' => $type,
-                'status' => $transaction,
+                'status' => 'Denied',
             ]);
             echo "Payment using " . $type . " for transaction order_id: " . $order_id . " is canceled.";
         } else if ($transaction == 'refund') {
             // TODO set payment status in merchant's database to 'Denied'
             $donatur->update([
                 'payment_type' => $type,
-                'status' => $transaction,
+                'status' => 'Refund',
             ]);$fund->update([
                 'dana_masuk' => $fund->dana_masuk - $gross_amount,
             ]);
