@@ -6,8 +6,8 @@
 <div class="row">
     <div class="col-lg-12">
         <div class="white-box">
-            <h3 class="box-title m-b-0">Default Basic Forms</h3>
-            <p class="text-muted m-b-30 font-13"> All bootstrap element classies </p>
+            <h3 class="box-title m-b-0">Buat Berita Baru</h3>
+            {{-- <p class="text-muted m-b-30 font-13"> All bootstrap element classies </p> --}}
             <form class="form-horizontal" action="{{route('postBerita')}}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="form-group">

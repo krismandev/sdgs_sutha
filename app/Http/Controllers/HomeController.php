@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Agenda;
 use App\Tentang;
 use App\Berita;
 use App\Tujuan;
@@ -20,7 +21,8 @@ class HomeController extends Controller
         $beritas = Berita::orderBy('created_at','desc')->paginate(4);
         $pilars = Pilar::orderBy('created_at','asc')->get();
         $funds = Fund::orderBy('created_at','desc')->paginate(4);
-        return view('frontend.index',compact(['tentang','beritas','tujuans','pilars','funds']));
+        $agendas = Agenda::orderBy('created_at','desc')->paginate(4);
+        return view('frontend.index',compact(['tentang','beritas','tujuans','pilars','funds','agendas']));
     }
 
     public function tentang()

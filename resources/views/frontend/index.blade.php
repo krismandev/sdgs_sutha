@@ -130,7 +130,7 @@ $banners = Banner::orderBy('created_at','desc')->get();
 <div class="latest-news section-spacing">
     <div class="container">
         <div class="theme-title-one">
-            <h2>Sgdg Fund</h2>
+            <h2>Sdgs Fund</h2>
         </div>
         @if($funds->count() != null)
         <div class="wrapper">
@@ -157,5 +157,34 @@ $banners = Banner::orderBy('created_at','desc')->get();
         @endif
     </div>
 </div> 
+
+<div class="section-spacing">
+    <div class="bg">
+        <div class="theme-title-one">
+            <h2> Terbaru</h2>
+            {{-- <p>A tale of a fateful trip that started from this tropic port aboard this tiny ship today stillers </p> --}}
+        </div> <!-- /.theme-title-one -->
+        <div class="container">
+            @if($agendas->count() > 0)
+            <div class="agenda-slider">
+                @foreach ($agendas as $agenda)
+                <div class="item">
+                    <div class="container">
+                        <div class="col-lg-10">
+                            <h3>{{date('d-m-Y',strtotime($agenda->tanggal))}}</h3>
+                            <h4><a href="{{route('showAgenda',$agenda->id)}}">{{$agenda->judul}}</a></h4>
+                            {!!Str::limit($agenda->deskripsi,200)!!}
+                        </div>
+                    </div>
+                </div> <!-- /.item -->
+                @endforeach
+            </div> <!-- /.testimonial-slider -->
+            @endif
+            <div style="position: relative;text-align: center; margin-top: 10px;">
+                <a href="{{route('agenda')}}" class="theme-button-one">Lihat Semua Agenda</a>
+            </div>
+        </div>
+    </div> <!-- /.bg -->
+</div>
 
 @endsection

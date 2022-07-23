@@ -188,6 +188,22 @@
           })
         }
 
+        var aSlider = $ (".agenda-slider");
+        if(aSlider.length) {
+            aSlider.owlCarousel({
+              loop:true,
+              nav:true,
+              navText : ['<i class="fa fa-angle-left" aria-hidden="true"></i>','<i class="fa fa-angle-right" aria-hidden="true"></i>'],
+              dots:false,
+              autoplay:true,
+              autoplayTimeout:4000,
+              smartSpeed:1000,
+              autoplayHoverPause:true,
+              lazyLoad:true,
+              items:2
+          })
+        }
+
 
         // ------------------------------- Partner Slider
         var pSlider = $ (".partner-slider");

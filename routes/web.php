@@ -42,6 +42,9 @@ Route::get('/survey','KegiatanController@survey')->name('survey');
 Route::get('/our-research','ResearchController@research')->name('research');
 Route::get('/our-research/{id}','ResearchController@detailResearch')->name('detailResearch');
 Route::get('/profil','HomeController@profil')->name('profil');
+Route::get('/agenda/{id}','AgendaController@showAgenda')->name('showAgenda');
+Route::get('/list-agenda','AgendaController@agenda')->name('agenda');
+
 
 Route::group(['prefix' => 'fund'],function(){
     Route::get('detail/{id}','FundController@detailFund')->name('detailFund');
@@ -134,6 +137,16 @@ Route::group(['middleware'=>'auth','prefix' => 'admin'],function(){
         Route::patch('/','Dashboard\PublikasiController@updateBuku')->name('updateBuku');
         Route::get('/delete/{id}','Dashboard\PublikasiController@deleteBuku')->name('deleteBuku');
     });
+
+    Route::group(['prefix' => 'agenda'],function(){
+        Route::get('/','Dashboard\AgendaController@getAgenda')->name('getAgenda');
+        Route::get('/create','Dashboard\AgendaController@createAgenda')->name('createAgenda');
+        Route::post('/','Dashboard\AgendaController@postAgenda')->name('postAgenda');
+        Route::get('/{id}','Dashboard\AgendaController@editAgenda')->name('editAgenda');
+        Route::patch('/','Dashboard\AgendaController@updateAgenda')->name('updateAgenda');
+        Route::get('/delete/{id}','Dashboard\AgendaController@deleteAgenda')->name('deleteAgenda');
+    });
+
 
     Route::group(['prefix' => 'annual-report'],function(){
         Route::get('/','Dashboard\PublikasiController@getReport')->name('getReport');
