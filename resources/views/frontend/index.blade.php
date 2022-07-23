@@ -161,7 +161,7 @@ $banners = Banner::orderBy('created_at','desc')->get();
 <div class="section-spacing">
     <div class="bg">
         <div class="theme-title-one">
-            <h2> Terbaru</h2>
+            <h2>Agenda Terbaru</h2>
             {{-- <p>A tale of a fateful trip that started from this tropic port aboard this tiny ship today stillers </p> --}}
         </div> <!-- /.theme-title-one -->
         <div class="container">
