@@ -9,6 +9,7 @@ use App\Tujuan;
 use App\Profil;
 use App\Pilar;
 use App\Fund;
+use App\Galeri;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -22,7 +23,9 @@ class HomeController extends Controller
         $pilars = Pilar::orderBy('created_at','asc')->get();
         $funds = Fund::orderBy('created_at','desc')->paginate(4);
         $agendas = Agenda::orderBy('created_at','desc')->paginate(4);
-        return view('frontend.index',compact(['tentang','beritas','tujuans','pilars','funds','agendas']));
+        $galeris = Galeri::inRandomOrder()->paginate(4)->toArray();
+        $galeris = $galeris['data'];
+        return view('frontend.index',compact(['tentang','beritas','tujuans','pilars','funds','agendas','galeris']));
     }
 
     public function tentang()

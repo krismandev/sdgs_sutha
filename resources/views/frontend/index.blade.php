@@ -27,6 +27,16 @@ $banners = Banner::orderBy('created_at','desc')->get();
         -webkit-transform:translate(-50% , -50%) scale3D(1.1,1.1,1);
           transform:translate(-50% , -50%) scale3D(1.1,1.1,1);
     }
+
+    .center-content{
+        margin: 0;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+
+        text-align: center;
+
+    }
 </style>
 
 <div class="about-compnay section-spacing">
@@ -186,5 +196,71 @@ $banners = Banner::orderBy('created_at','desc')->get();
         </div>
     </div> <!-- /.bg -->
 </div>
+
+
+<div class="section-spacing">
+    <div class="row">
+        <div class="col-lg-6 col-12" style="height: 700px; margin: 0px; padding: 0px;">
+            <div class="row" style="width: 100%; height: 50%; margin: 0px; padding: 0px;">
+                <div class="col-lg-6 col-12" style="background: url(../galeri/{{$galeris[0]['gambar']}}) no-repeat center center; -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover; margin: 0px; padding: 0px;">
+
+                </div>
+                <div class="col-lg-6 col-12" style="background-color: #000f32; margin: 0px; padding: 0px;">
+                    <div class="center-content">
+                        <h4 style="color: white;">Data</h4>
+                        <p style="color: white">
+                            There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour
+                        </p>
+                        <a href="#" style="color: white; margin-top:5px;"> Lebih lanjut</a>
+                    </div>
+                </div>
+            </div>
+            <div class="row" style="width: 100%; height: 50%; margin: 0px; padding: 0px;">
+                <div class="col-lg-6 col-12" style="background-color: #f7c00a; margin: 0px; padding: 0px;">
+                    <div class="center-content">
+                        <h4 style="color: white;">Isu</h4>
+                        <p style="color: white">
+                            There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour
+                        </p>
+                        <a href="#" style="color: white; margin-top:5px;"> Lebih lanjut</a>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-12" style="background: url(../galeri/{{$galeris[1]['gambar']}}) no-repeat center center;   -moz-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover; margin: 0px; padding: 0px;">
+                    
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 col-12" style="height: 700px; margin: 0px; padding: 0px;">
+            <div class="row" style="width: 100%; height: 50%; margin: 0px; padding: 0px;">
+                <div class="col-lg-6 col-12" style="background: url(../galeri/{{$galeris[2]['gambar']}}) no-repeat center center;   -o-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover; margin: 0px; padding: 0px;">
+
+                </div>
+                <div class="col-lg-6 col-12" style="background-color: #000f32; margin: 0px; padding: 0px;">
+                    <div class="center-content">
+                        <h4 style="color: white;">Project</h4>
+                        <p style="color: white">
+                            There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour
+                        </p>
+                        <a href="#" style="color: white; margin-top:5px;"> Lebih lanjut</a>
+                    </div>
+                </div>
+            </div>
+            <div class="row" style="width: 100%; height: 50%; margin: 0px; padding: 0px;">
+                <div class="col-lg-6 col-12" style="background-color: #f7c00a; margin: 0px; padding: 0px;">
+                    <div class="center-content">
+                        <h4 style="color: white;">Courses</h4>
+                        <p style="color: white">
+                            There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour
+                        </p>
+                        <a href="#" style="color: white; margin-top:5px;"> Lebih lanjut</a>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-12" style="background: url(../galeri/{{$galeris[3]['gambar']}}) no-repeat center center;   background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover; margin: 0px; padding: 0px;">
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div> 
 
 @endsection
