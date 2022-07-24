@@ -73,6 +73,9 @@
                     <a href="{{route('getTujuan')}}" aria-expanded="false" class="{{(request()->is('admin/tujuan*'))?'active': ''}}"><i class="fa fa-info"></i> <span class="hide-menu">Tujuan SDGs</span></a>
                 </li>
                 <li>
+                    <a href="{{route('getFund')}}" aria-expanded="false" class="{{(request()->is('admin/fund*'))?'active': ''}}"><i class="icon-globe"></i> <span class="hide-menu">Fund</span></a>
+                </li>
+                <li>
                     <a href="{{route('getMitra')}}" aria-expanded="false" class="{{(request()->is('admin/mitra*'))?'active': ''}}"><i class="icon-globe"></i> <span class="hide-menu">Mitra</span></a>
                 </li>
                 <li>
