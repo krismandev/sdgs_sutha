@@ -103,6 +103,7 @@ class AgendaController extends Controller
         $file_path = public_path().'/agenda/'.$agenda->dokumen;
         
         File::delete($file_path);
+        $agenda->delete();
         Alert::success("Sukses","Berhasil menghapus agenda");
         return redirect()->back();
     }
