@@ -59,7 +59,7 @@
                 </li>
 
                 <li>
-                    <a href="{{route('getAgenda')}}" aria-expanded="false" class="{{(request()->is('admin/agenda*'))?'active': ''}}"><i class="icon-cursor-move"></i> <span class="hide-menu">Agenda</span></a>
+                    <a href="{{route('getAgenda')}}" aria-expanded="false" class="{{(request()->is('admin/agenda*'))?'active': ''}}"><i class="fa fa-calendar"></i> <span class="hide-menu">Agenda</span></a>
                 </li>
 
                 <li>
