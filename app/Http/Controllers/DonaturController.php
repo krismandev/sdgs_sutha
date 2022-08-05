@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Donatur;
 use App\Fund;
 use Midtrans\Config;
+use Midtrans\Snap;
+use Midtrans\Notification;
 
 class DonaturController extends Controller
 {
@@ -71,14 +73,14 @@ class DonaturController extends Controller
             // 'enabled_payments'=> array("credit_card", "cimb_clicks","bca_klikbca", "bca_klikpay", "bri_epay", "echannel", "permata_va","bca_va", "bni_va", "bri_va", "other_va", "gopay", "indomaret","danamon_online", "akulaku", "shopeepay", "kredivo", "uob_ezpay"),
         );
             
-        $snapToken = \Midtrans\Snap::getSnapToken($params);
+        $snapToken = Snap::getSnapToken($params);
         return view('frontend.fund.donatur.konfirmasidonatur',compact(['snapToken','nama','email','fund_id']));
     }
     public function notifHandler()
     {
         Config::$isProduction = env('MIDTRANS_IS_PRODUCTION');;
         Config::$serverKey = env('MIDTRANS_SERVER_KEY');
-        $notif = new \Midtrans\Notification();
+        $notif = new Notification();
 
         $transaction = $notif->transaction_status;
         $gross_amount = $notif->gross_amount;
