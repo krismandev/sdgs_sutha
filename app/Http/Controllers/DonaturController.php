@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Donatur;
 use App\Fund;
+use Midtrans\Config;
+use Midtrans\Snap;
+use Midtrans\Notification;
 
 class DonaturController extends Controller
 {
@@ -36,13 +39,13 @@ class DonaturController extends Controller
     public function konfirmasiDonatur($order_id,$data)
     {
         // Set your Merchant Server Key
-        \Midtrans\Config::$serverKey = env('MIDTRANS_SERVER_KEY');
+        Config::$serverKey = env('MIDTRANS_SERVER_KEY');
         // Set to Development/Sandbox Environment (default). Set to true for Production Environment (accept real transaction).
-        \Midtrans\Config::$isProduction = env('MIDTRANS_IS_PRODUCTION');
+        Config::$isProduction = env('MIDTRANS_IS_PRODUCTION');
         // Set sanitization on (default)
-        \Midtrans\Config::$isSanitized = env('MIDTRANS_IS_SANITIZED');
+        Config::$isSanitized = env('MIDTRANS_IS_SANITIZED');
         // Set 3DS transaction for credit card to true
-        \Midtrans\Config::$is3ds = env('MIDTRANS_IS_3DS');
+        Config::$is3ds = env('MIDTRANS_IS_3DS');
 
         $data = explode('.',$data);
         $jumlah = base64_decode($data[0]);
@@ -70,14 +73,14 @@ class DonaturController extends Controller
             // 'enabled_payments'=> array("credit_card", "cimb_clicks","bca_klikbca", "bca_klikpay", "bri_epay", "echannel", "permata_va","bca_va", "bni_va", "bri_va", "other_va", "gopay", "indomaret","danamon_online", "akulaku", "shopeepay", "kredivo", "uob_ezpay"),
         );
             
-        $snapToken = \Midtrans\Snap::getSnapToken($params);
+        $snapToken = Snap::getSnapToken($params);
         return view('frontend.fund.donatur.konfirmasidonatur',compact(['snapToken','nama','email','fund_id']));
     }
     public function notifHandler()
     {
-        \Midtrans\Config::$isProduction = env('MIDTRANS_IS_PRODUCTION');;
-        \Midtrans\Config::$serverKey = env('MIDTRANS_SERVER_KEY');
-        $notif = new \Midtrans\Notification();
+        Config::$isProduction = env('MIDTRANS_IS_PRODUCTION');;
+        Config::$serverKey = env('MIDTRANS_SERVER_KEY');
+        $notif = new Notification();
 
         $transaction = $notif->transaction_status;
         $gross_amount = $notif->gross_amount;
