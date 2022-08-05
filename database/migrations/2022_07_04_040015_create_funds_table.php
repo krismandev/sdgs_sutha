@@ -17,7 +17,7 @@ class CreateFundsTable extends Migration
             $table->bigIncrements('id');
             $table->string("gambar");
             $table->string("tujuan");
-            $table->string("deskripsi");
+            $table->longText("deskripsi");
             $table->string("lokasi");
             $table->date("deadline");
             $table->integer("dana_masuk");

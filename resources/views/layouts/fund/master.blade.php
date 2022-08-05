@@ -26,6 +26,7 @@ $mitras = Mitra::inRandomOrder()->get();
 		<!-- iOS Safari -->
 		<meta name="apple-mobile-web-app-status-bar-style" content="#061948">
 		<title>@yield('title')</title>
+		@yield('meta')
 		<!-- Favicon -->
 		<link rel="icon" type="image/png" sizes="56x56" href="{{asset('frontend/images/fav-icon/icon.png')}}">
 		<!-- Main style sheet -->
