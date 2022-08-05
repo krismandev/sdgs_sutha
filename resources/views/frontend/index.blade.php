@@ -202,60 +202,64 @@ $banners = Banner::orderBy('created_at','desc')->get();
     <div class="row">
         <div class="col-lg-6 col-12" style="height: 700px; margin: 0px; padding: 0px;">
             <div class="row" style="width: 100%; height: 50%; margin: 0px; padding: 0px;">
-                <div class="col-lg-6 col-12" style="background: url(../galeri/{{$galeris[0]['gambar']}}) no-repeat center center; -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover; margin: 0px; padding: 0px;">
+                <div class="col-lg-6 col-12" style="background: url(../featured/{{$featured[0]->gambar}}) no-repeat center center; -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover; margin: 0px; padding: 0px;">
 
                 </div>
                 <div class="col-lg-6 col-12" style="background-color: #000f32; margin: 0px; padding: 0px;">
                     <div class="center-content">
-                        <h4 style="color: white;">Data</h4>
+                        <h4 style="color: white;">{{$featured[0]->judul}}</h4>
                         <p style="color: white">
-                            There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour
+                            {{-- There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour --}}
+                            {{$featured[0]->deskripsi}}
                         </p>
-                        <a href="#" style="color: white; margin-top:5px;"> Lebih lanjut</a>
+                        <a href="{{$featured[0]->link}}" style="color: white; margin-top:5px;"> Lebih lanjut</a>
                     </div>
                 </div>
             </div>
             <div class="row" style="width: 100%; height: 50%; margin: 0px; padding: 0px;">
                 <div class="col-lg-6 col-12" style="background-color: #f7c00a; margin: 0px; padding: 0px;">
                     <div class="center-content">
-                        <h4 style="color: white;">Isu</h4>
+                        <h4 style="color: white;">{{$featured[1]->judul}}</h4>
                         <p style="color: white">
-                            There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour
+                            {{-- There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour --}}
+                            {{$featured[1]->deskripsi}}
                         </p>
-                        <a href="#" style="color: white; margin-top:5px;"> Lebih lanjut</a>
+                        <a href="{{$featured[1]->link}}" style="color: white; margin-top:5px;"> Lebih lanjut</a>
                     </div>
                 </div>
-                <div class="col-lg-6 col-12" style="background: url(../galeri/{{$galeris[1]['gambar']}}) no-repeat center center;   -moz-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover; margin: 0px; padding: 0px;">
+                <div class="col-lg-6 col-12" style="background: url(../featured/{{$featured[1]->gambar}}) no-repeat center center;   -moz-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover; margin: 0px; padding: 0px;">
                     
                 </div>
             </div>
         </div>
         <div class="col-lg-6 col-12" style="height: 700px; margin: 0px; padding: 0px;">
             <div class="row" style="width: 100%; height: 50%; margin: 0px; padding: 0px;">
-                <div class="col-lg-6 col-12" style="background: url(../galeri/{{$galeris[2]['gambar']}}) no-repeat center center;   -o-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover; margin: 0px; padding: 0px;">
+                <div class="col-lg-6 col-12" style="background: url(../featured/{{$featured[2]->gambar}}) no-repeat center center;   -o-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover; margin: 0px; padding: 0px;">
 
                 </div>
                 <div class="col-lg-6 col-12" style="background-color: #000f32; margin: 0px; padding: 0px;">
                     <div class="center-content">
-                        <h4 style="color: white;">Project</h4>
+                        <h4 style="color: white;">{{$featured[2]->judul}}</h4>
                         <p style="color: white">
-                            There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour
+                            {{-- There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour --}}
+                            {{$featured[2]->deskripsi}}
                         </p>
-                        <a href="#" style="color: white; margin-top:5px;"> Lebih lanjut</a>
+                        <a href="{{$featured[2]->link}}" style="color: white; margin-top:5px;"> Lebih lanjut</a>
                     </div>
                 </div>
             </div>
             <div class="row" style="width: 100%; height: 50%; margin: 0px; padding: 0px;">
                 <div class="col-lg-6 col-12" style="background-color: #f7c00a; margin: 0px; padding: 0px;">
                     <div class="center-content">
-                        <h4 style="color: white;">Courses</h4>
+                        <h4 style="color: white;">{{$featured[3]->judul}}</h4>
                         <p style="color: white">
-                            There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour
+                            {{-- There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour --}}
+                            {{$featured[3]->deskripsi}}
                         </p>
-                        <a href="#" style="color: white; margin-top:5px;"> Lebih lanjut</a>
+                        <a href="{{$featured[3]->link}}" style="color: white; margin-top:5px;"> Lebih lanjut</a>
                     </div>
                 </div>
-                <div class="col-lg-6 col-12" style="background: url(../galeri/{{$galeris[3]['gambar']}}) no-repeat center center;   background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover; margin: 0px; padding: 0px;">
+                <div class="col-lg-6 col-12" style="background: url(../featured/{{$featured[3]->gambar}}) no-repeat center center;   background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover; margin: 0px; padding: 0px;">
                     
                 </div>
             </div>

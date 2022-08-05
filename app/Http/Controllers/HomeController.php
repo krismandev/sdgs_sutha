@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Agenda;
 use App\Tentang;
 use App\Berita;
+use App\Featured;
 use App\Tujuan;
 use App\Profil;
 use App\Pilar;
@@ -25,7 +26,8 @@ class HomeController extends Controller
         $agendas = Agenda::orderBy('created_at','desc')->paginate(4);
         $galeris = Galeri::inRandomOrder()->paginate(4)->toArray();
         $galeris = $galeris['data'];
-        return view('frontend.index',compact(['tentang','beritas','tujuans','pilars','funds','agendas','galeris']));
+        $featured = Featured::paginate(4);
+        return view('frontend.index',compact(['tentang','beritas','tujuans','pilars','funds','agendas','galeris','featured']));
     }
 
     public function tentang()

@@ -81,6 +81,12 @@
                 <li>
                     <a href="{{route('getInbox')}}" aria-expanded="false" class="{{(request()->is('admin/inbox*'))?'active': ''}}"><i class="icon-envelope-letter fa-fw"></i> <span class="hide-menu">Inbox</span></a>
                 </li>
+                <li>
+                    <a class="waves-effect {{(request()->is('admin/featured*'))?'active': ''}}" href="javascript:void(0);" aria-expanded="false"><i class="icon-pin fa-fw"></i> <span class="hide-menu"> Settings </span></a>
+                    <ul aria-expanded="false" class="collapse">
+                        <li> <a href="{{route('getFeatured')}}">Featured</a> </li>
+                    </ul>
+                </li>
             </ul>
         </nav>
 

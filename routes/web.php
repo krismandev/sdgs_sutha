@@ -213,6 +213,11 @@ Route::group(['middleware'=>'auth','prefix' => 'admin'],function(){
         Route::get('/delete/{id}','Dashboard\TentangController@deleteProfil')->name('deleteProfil');
     });
 
+    Route::group(['prefix' => 'featured'],function(){
+        Route::get('/','Dashboard\FeaturedController@getFeatured')->name('getFeatured');
+        Route::post('/','Dashboard\FeaturedController@postFeatured')->name('postFeatured');
+    });
+
     Route::patch('/password','Dashboard\UserController@updatePassword')->name('updatePassword');
     Route::get('/logout','Dashboard\UserController@logout')->name('logout');
 });
