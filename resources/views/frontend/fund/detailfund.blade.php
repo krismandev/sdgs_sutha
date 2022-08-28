@@ -1,6 +1,28 @@
 @extends('layouts.fund.master')
 @section('title')
-    Detail Donasi
+    {{$fund->tujuan}}
+@endsection
+@section('meta')
+<meta name="description" content="<?=strlen(strip_tags($fund->deskripsi)) > 150 ? substr(strip_tags($fund->deskripsi),0,150)."..." : strip_tags($fund->deskripsi);?>"/>
+ 
+<!-- Google / Search Engine Tags -->
+<meta itemprop="name" content="{{$fund->tujuan}}">
+<meta itemprop="description" content="<?=strlen(strip_tags($fund->deskripsi)) > 150 ? substr(strip_tags($fund->deskripsi),0,150)."..." : strip_tags($fund->deskripsi);?>">
+<meta itemprop="image" content="{{url('fund/img/'.$fund->gambar)}}">
+ 
+<!-- Facebook Meta Tags -->
+<meta property="og:url" content="">
+<meta property="og:type" content="website">
+<meta property="og:title" content="{{$fund->tujuan}}">
+<meta property="og:description" content="<?=strlen(strip_tags($fund->deskripsi)) > 150 ? substr(strip_tags($fund->deskripsi),0,150)."..." : strip_tags($fund->deskripsi);?>">
+<meta property="og:image" content="{{url('fund/img/'.$fund->gambar)}}">
+ 
+<!-- Twitter Meta Tags -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{$fund->tujuan}}">
+<meta name="twitter:description" content="<?=strlen(strip_tags($fund->deskripsi)) > 150 ? substr(strip_tags($fund->deskripsi),0,150)."..." : strip_tags($fund->deskripsi);?>">
+<meta name="twitter:image" content="{{url('fund/img/'.$fund->gambar)}}">
+
 @endsection
 @section('content')
     <div class="kontainer min-h-screen">
@@ -48,4 +70,8 @@
             </div>
         </div>
     </div>
+    <script>
+        let url = location.href;
+        document.querySelector('meta[property="og:url"]').setAttribute("content", url);
+    </script>
 @endsection
