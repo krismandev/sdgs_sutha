@@ -27,7 +27,7 @@ class FeaturedController extends Controller
         $featured = Featured::find($request->featured_id);
         if ($request->hasFile('gambar')) {
             $gambar = $request->file('gambar');
-            $nama_gambar = time()."_".$gambar->getClientOriginalName();
+            $nama_gambar = time()."_".$gambar->getClientOriginalExtension();
             $tujuan_upload = 'featured';
             $gambar->move($tujuan_upload,$nama_gambar);
         }else{
